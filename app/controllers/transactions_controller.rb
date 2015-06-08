@@ -1,10 +1,20 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_filter :common_variables, only: [:index, :edit, :new]
 
   # GET /transactions
   # GET /transactions.json
-  def index
+  
+  def common_variables
     @transactions = Transaction.all
+    @accounts = ["Participant Travel", "Staff Travel", "Board Travel"]
+    @programs = ["Admin", "Development", "Programs"]
+    @all_amounts = Transaction.pluck(:amount)
+    @total = @all_amounts.sum    
+  end
+  
+  def index
+
   end
 
   # GET /transactions/1
@@ -14,16 +24,11 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
-    @transactions = Transaction.all
     @transaction = Transaction.new
-    @programs = ["Admin", "Development", "Programs"]
-    @accounts = ["Participant Travel", "Staff Travel", "Board Travel"]
   end
 
   # GET /transactions/1/edit
   def edit
-    @programs = ["Admin", "Development", "Programs"]
-    @accounts = ["Participant Travel", "Staff Travel", "Board Travel"]
   end
 
   # POST /transactions
@@ -33,8 +38,8 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
+        format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
+        format.json { redirect_to transactions_url, status: :created, location: @transaction }
       else
         format.html { render :new }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -45,9 +50,10 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
+    #@transaction = Transaction.find(params[:id])
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to transactions_url, notice: 'Transaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit }
@@ -65,7 +71,7 @@ class TransactionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction

@@ -1,5 +1,8 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
+  
+  
   before_filter :common_variables, only: [:index, :edit, :new]
 
   # GET /transactions
@@ -10,7 +13,7 @@ class TransactionsController < ApplicationController
     @accounts = ["Participant Travel", "Staff Travel", "Board Travel"]
     @programs = ["Admin", "Development", "Programs"]
     @all_amounts = Transaction.pluck(:amount)
-    @total = @all_amounts.sum    
+    @total = @all_amounts.sum
   end
   
   def index
@@ -25,6 +28,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    
   end
 
   # GET /transactions/1/edit
@@ -34,7 +38,7 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = current_user.transactions.build(transaction_params)
 
     respond_to do |format|
       if @transaction.save

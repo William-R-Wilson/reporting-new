@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602014356) do
+ActiveRecord::Schema.define(version: 20150609230300) do
 
   create_table "transactions", force: true do |t|
     t.date     "date"
@@ -20,11 +20,23 @@ ActiveRecord::Schema.define(version: 20150602014356) do
     t.string   "what"
     t.string   "where"
     t.string   "why"
-    t.integer  "amount",     limit: 2
+    t.decimal  "amount",     precision: 6, scale: 2
     t.string   "program"
     t.string   "account"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",           default: false
   end
 
 end

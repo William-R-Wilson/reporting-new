@@ -1,3 +1,5 @@
+
+
 <%= form_for(@transaction) do |f| %>
   <% if @transaction.errors.any? %>
     <div id="error_explanation">
@@ -10,9 +12,7 @@
       </ul>
     </div>
   <% end %>
-  
-  <%= render "list" %>
-  
+
 <table>
   <tr>
     <th>Date</th>

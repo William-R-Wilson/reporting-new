@@ -21,6 +21,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def user_transactions
+    @user = params[:user]
+    @transactions = @user.transactions
+  end
+    
+    
   # POST /users
   # POST /users.json
   def create

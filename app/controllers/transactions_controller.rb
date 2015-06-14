@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   
   def common_variables
-    @transactions = Transaction.all
+    @transactions = Transaction.all.order(:date)
     @accounts = ["Participant Travel", "Staff Travel", "Board Travel"]
     @programs = ["Admin", "Development", "Programs"]
     @all_amounts = Transaction.pluck(:amount)
@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
   end
   
   def index
-
+    #@user = User.find_by(id: params[:user_id])
   end
 
   # GET /transactions/1
@@ -27,8 +27,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
-    @transaction = Transaction.new
-    
+    @transaction = Transaction.new    
   end
 
   # GET /transactions/1/edit

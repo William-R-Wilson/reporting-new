@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
+  
+  def accounts_and_programs
+    @accounts = ["Participant Travel", "Staff Travel", "Board Travel", "Materials", "Technology Subscriptions", "Printing/Copying"]
+    @programs = ["Admin", "Development", "Youth Programs", "Other Programs"]
+  end 
 
     
   protected

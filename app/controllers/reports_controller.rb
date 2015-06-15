@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
-  before_filter :common_variables
+  before_filter :common_variables, :accounts_and_programs
+  before_action :authorize
   
   def common_variables
     @users_to_select = User.all.map{ |u| [ u.name, u.id ] }
@@ -22,14 +23,11 @@ class ReportsController < ApplicationController
     @end_date = Date.civil(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
     user_id = params[:user_id]
     @transactions = Transaction.where('user_id = ? AND date BETWEEN ? AND ?', user_id, @start_date, @end_date)
+    @transactions_grouped_by_account = @transactions.group(:account)
+    #group by program
+    @transactions_grouped_by_program = @transactions_grouped_by_account.group(:program)
+    @total_by_account = @transactions_grouped_by_account.sum(:amount)
+    @total_by_program = @transactions_grouped_by_program.sum(:amount)
   end
-
-
-# https://stackoverflow.com/questions/4834348/how-can-i-search-by-a-range-of-dates-in-rails
-  
-  #def user_report
-  #  @user = User.find_by(id: params[:user_id])
-  #  @transactions = @user.transactions
-  #end
   
 end

@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_filter :accounts_and_programs  #in application_controller
+  
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :authorize
   
@@ -10,8 +12,6 @@ class TransactionsController < ApplicationController
   
   def common_variables
     @transactions = Transaction.all.order(:date)
-    @accounts = ["Participant Travel", "Staff Travel", "Board Travel"]
-    @programs = ["Admin", "Development", "Programs"]
     @all_amounts = Transaction.pluck(:amount)
     @total = @all_amounts.sum
   end

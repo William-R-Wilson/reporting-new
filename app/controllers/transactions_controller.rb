@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
   end
   
   def index
-    #@user = User.find_by(id: params[:user_id])
+
   end
 
   # GET /transactions/1

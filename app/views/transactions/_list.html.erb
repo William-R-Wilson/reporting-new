@@ -27,7 +27,7 @@
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.program %></td>
         <td><%= transaction.account %></td>
-        <td><%= transaction.user_id %></td>
+        <td><%= transaction.user.name %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
         <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,6 +35,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= @user_names.to_s %>
 
 Total:  <strong><%= number_to_currency(@all_amounts.sum) %></strong>
 <br />

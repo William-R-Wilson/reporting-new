@@ -2,44 +2,44 @@
 
 ### Display: 
 
--Name of user is shown in index view
+- Name of user is shown in index view. Done
 
--Fields are responsive to screen size
+- Fields are responsive to screen size
 
 
 
 ### reporting:
 
--reports by user, and with start and end dates can be run.  Done
+- reports by user, and with start and end dates can be run.  Done
 
--reports show totals by account. Done
+- reports show totals by account. Done
 
--reports show totals by program and account. in progress
+- reports show totals by program and account. in progress
 
 
 ### Tests:  
 
--Application is fully tested
+- Application is fully tested
 
 
 ### Model: 
 
--User has many transactions
+- User has many transactions
 
--Users can enter and edit their transactions. Done
+- Users can enter and edit their transactions. Done
 
 
 ### Authorization:
 
--Authorized users and admins can enter for other users.  
+- Authorized users and admins can enter for other users.  
 
--Coordinators can approve transactions. coordinators are linked to specific employees, ie coordinator x can approve for employee a,b and c but not employees d, e, f.
+- Coordinators can approve transactions. coordinators are linked to specific employees, ie coordinator x can approve for employee a,b and c but not employees d, e, f.
 
--Two admins can enter and delete users. 
+- Two admins can enter and delete users. 
 
 
 
 ### Future:  
 
--Uploading images of receipts with each transaction
--Individual companies can login and create their own customized forms
+- Uploading images of receipts with each transaction
+- Individual companies can login and create their own customized forms

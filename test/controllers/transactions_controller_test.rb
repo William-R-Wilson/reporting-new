@@ -5,29 +5,26 @@ class TransactionsControllerTest < ActionController::TestCase
     @transaction = transactions(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:transactions)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
 
   test "should create transaction" do
     assert_difference('Transaction.count') do
-      post :create, transaction: { account: @transaction.account, amount: @transaction.amount, amount: @transaction.amount, date: @transaction.date, program: @transaction.program, string: @transaction.string, vendor: @transaction.vendor, what: @transaction.what, where: @transaction.where, who: @transaction.who, why: @transaction.why }
+      post :create, transaction: { 
+        account: @transaction.account, 
+        amount: @transaction.amount, 
+        date: @transaction.date, 
+        program: @transaction.program, 
+        vendor: @transaction.vendor, 
+        what: @transaction.what, 
+        where: @transaction.where, 
+        who: @transaction.who, 
+        why: @transaction.why,
+        user_id: @transaction.user_id
+        }
     end
 
-    assert_redirected_to transaction_path(assigns(:transaction))
+    assert_redirected_to transactions_path
   end
 
-  test "should show transaction" do
-    get :show, id: @transaction
-    assert_response :success
-  end
 
   test "should get edit" do
     get :edit, id: @transaction
@@ -35,8 +32,8 @@ class TransactionsControllerTest < ActionController::TestCase
   end
 
   test "should update transaction" do
-    patch :update, id: @transaction, transaction: { account: @transaction.account, amount: @transaction.amount, amount: @transaction.amount, date: @transaction.date, program: @transaction.program, string: @transaction.string, vendor: @transaction.vendor, what: @transaction.what, where: @transaction.where, who: @transaction.who, why: @transaction.why }
-    assert_redirected_to transaction_path(assigns(:transaction))
+    patch :update, id: @transaction, transaction: { account: @transaction.account, amount: @transaction.amount, date: @transaction.date, program: @transaction.program, vendor: @transaction.vendor, what: @transaction.what, where: @transaction.where, who: @transaction.who, why: @transaction.why }
+    assert_redirected_to transactions_path
   end
 
   test "should destroy transaction" do

@@ -14,12 +14,12 @@
 
 - reports show totals by account. Done
 
-- reports show totals by program and account. in progress
+- reports show totals by program and account. done
 
 
 ### Tests:  
 
-- Application is fully tested
+- Application is fully tested.  in progress
 
 
 ### Model: 
@@ -43,3 +43,6 @@
 
 - Uploading images of receipts with each transaction
 - Individual companies can login and create their own customized forms
+
+
+

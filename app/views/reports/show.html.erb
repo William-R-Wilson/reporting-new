@@ -1,10 +1,8 @@
 <h1>Report dashboard</h1>
 <%= render "list" %>
-
-
-
-<% @total_by_account.each do |account, total| %>
-  <li><%= account + ": " + number_to_currency(total) %></li>
+<h2>Total of all Transactions:  <%= number_to_currency(@total.sum) %></h2>
+<% @total_by_program.each do |program, total| %>
+  <li><%= program[1] + " " + program[0] + ": " + number_to_currency(total) %>
 <% end %>
 
 

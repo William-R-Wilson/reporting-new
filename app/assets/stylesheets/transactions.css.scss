@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.transaction-row td{
-    border: 1px solid black;
+.list_line_even { 
+  background-color: #E6F2FF;
+}
+
+.list_line_odd {
+  background-color: #FFFFFF;
+}
+
+.divider {
+  height: 1px;
+  background-color: black;
+  width: 100%;
 }

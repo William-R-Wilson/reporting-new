@@ -2,26 +2,24 @@
 
 one:
   date: 2015-06-02
-  vendor: MyString
-  who: MyString
-  what: MyString
-  where: MyString
-  why: MyString
-  string: MyString
-  amount: 
-  amount: 
-  program: MyString
-  account: MyString
+  vendor: "Jimi Hendrix"
+  who: "Elmo"
+  what: "Cookies"
+  where: "Atlanta"
+  why: "cookies are good"
+  amount: 5.99
+  program: "Admin"
+  account: "Staff Travel"
+  user_id: 1
 
 two:
   date: 2015-06-02
-  vendor: MyString
-  who: MyString
-  what: MyString
-  where: MyString
-  why: MyString
-  string: MyString
-  amount: 
-  amount: 
-  program: MyString
-  account: MyString
+  vendor: "Jimi Hendrix"
+  who: "Elmo"
+  what: "Milk"
+  where: "Atlanta"
+  why: "cookies are better with milk"
+  amount: 4.50
+  program: "Admin"
+  account: "Staff Travel"
+  user_id: 2

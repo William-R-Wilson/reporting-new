@@ -17,7 +17,7 @@
 
   <tbody>
     <% @transactions.each do |transaction| %>
-      <tr class = "transaction-row">
+      <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
         <td><%= transaction.date %></td>
         <td><%= transaction.vendor %></td>
         <td><%= transaction.who %></td>
@@ -28,9 +28,8 @@
         <td><%= transaction.program %></td>
         <td><%= transaction.account %></td>
         <td><%= transaction.user.name %></td>
-        <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

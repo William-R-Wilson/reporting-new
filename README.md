@@ -37,6 +37,8 @@
 
 - Two admins can enter and delete users. 
 
+- Admins can enter additional accounts and programs
+
 
 
 ### Future:  

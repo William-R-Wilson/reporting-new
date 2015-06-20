@@ -23,6 +23,12 @@ class ApplicationController < ActionController::Base
       end
     end    
     
+    def check_if_admin
+      unless User.find_by(id: session[:user_id]).admin?
+        flash[:error] = "Not authorized"
+        redirect_to transactions_url
+      end
+    end
 
       
     

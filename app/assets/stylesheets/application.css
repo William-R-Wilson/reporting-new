@@ -21,3 +21,7 @@
 #footer li {
   display: inline;
 }
+
+.alert-error {
+  color: red;
+}

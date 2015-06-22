@@ -7,7 +7,6 @@
 - Fields are responsive to screen size
 
 
-
 ### reporting:
 
 - reports by user, and with start and end dates can be run.  Done
@@ -31,14 +30,15 @@
 
 ### Authorization:
 
+- Basic authorization system is in place.  done
+
+- Admins can enter and delete users. done
+
 - Authorized users and admins can enter for other users.  
 
 - Coordinators can approve transactions. coordinators are linked to specific employees, ie coordinator x can approve for employee a,b and c but not employees d, e, f.
 
-- Two admins can enter and delete users. 
-
 - Admins can enter additional accounts and programs
-
 
 
 ### Future:  

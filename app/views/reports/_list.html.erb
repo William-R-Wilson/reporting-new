@@ -17,7 +17,7 @@
 
   <tbody>
     <% @transactions.each do |transaction| %>
-      <tr class = "transaction-row">
+      <tr class = "<%= cycle('list_line_even', 'list_line_odd') %>">
         <td><%= transaction.date %></td>
         <td><%= transaction.vendor %></td>
         <td><%= transaction.who %></td>

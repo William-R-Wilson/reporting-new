@@ -7,21 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div id = "navbar">
 <ul>
-
 <% if session[:user_id] %>
   <li><%= link_to "All Transactions", transactions_path %> | </li>
   <li><%= link_to "Reports", reports_path %> | </li>
   <li><%= link_to "Logout", logout_path, method: :delete %></li>
 <% end %>
-
-
-
 </ul>
 </div>
-
-
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 <%= yield %>
 
 

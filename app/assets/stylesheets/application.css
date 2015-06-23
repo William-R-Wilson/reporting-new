@@ -22,6 +22,12 @@
   display: inline;
 }
 
-.alert-error {
+
+#flash {
+  padding: 1px;
+}
+
+flash .danger {
   color: red;
 }
+

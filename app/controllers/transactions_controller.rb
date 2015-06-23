@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
         format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
         format.json { redirect_to transactions_url, status: :created, location: @transaction }
       else
-        format.html { redirect_to new_transaction_path }
+        format.html { redirect_to transactions_url, notice: 'Your submission had errors, please try again' }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end

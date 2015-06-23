@@ -11,8 +11,12 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   
   def common_variables
-    @transactions = Transaction.all.order(:date)
-    @all_amounts = Transaction.pluck(:amount)
+    if User.find_by(id: session[:user_id]).admin?
+      @transactions = Transaction.all.order(:date)
+    else
+      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])) 
+    end
+    @all_amounts = @transactions.pluck(:amount)
     @total = @all_amounts.sum
   end
   

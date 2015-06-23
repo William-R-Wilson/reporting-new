@@ -30,22 +30,22 @@
       <%= f.date_select :date %>
     </td>
     <td>
-      <%= f.text_field :vendor %>
+      <%= f.text_field :vendor, class: "entry" %>
     </td>
     <td>
-      <%= f.text_field :who %>
+      <%= f.text_field :who, class: "entry" %>
     </td>
     <td>
-    <%= f.text_field :what %>
+    <%= f.text_field :what, class: "entry" %>
     </td>
     <td>
-      <%= f.text_field :where %>
+      <%= f.text_field :where, class: "entry" %>
     </td>
     <td>
-      <%= f.text_field :why %>
+      <%= f.text_field :why, class: "entry" %>
     </td>
     <td>
-      <%= f.text_field :amount %>
+      <%= f.text_field :amount, class: "amount" %>
     </td>
     <td>
       <%= select(:transaction, :program, options_for_select(@programs)) %>

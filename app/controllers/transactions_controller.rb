@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
   
   def common_variables
     if User.find_by(id: session[:user_id]).admin?
-      @transactions = Transaction.all.order(:date)
+      @transactions = Transaction.all.paginate(:page => params[:page]).order(:date)
     else
       @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])) 
     end

@@ -35,8 +35,9 @@
   </tbody>
 </table>
 
-<%= @user_names.to_s %>
 
 Total:  <strong><%= number_to_currency(@all_amounts.sum) %></strong>
+
+<%= will_paginate @transactions %>
 <br />
 <br />

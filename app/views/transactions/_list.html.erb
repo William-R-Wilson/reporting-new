@@ -1,3 +1,4 @@
+<div id = "list_container">
 <table>
   <thead>
     <tr>
@@ -38,6 +39,5 @@
 
 Total:  <strong><%= number_to_currency(@all_amounts.sum) %></strong>
 
-<%= will_paginate @transactions %>
-<br />
-<br />
+<div class = "paginate"><%= will_paginate @transactions %></div>
+</div>

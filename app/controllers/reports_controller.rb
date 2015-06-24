@@ -3,7 +3,11 @@ class ReportsController < ApplicationController
   before_action :authorize
   
   def common_variables
-    @users_to_select = User.all.map{ |u| [ u.name, u.id ] }
+    if User.find_by(id: session[:user_id]).admin?
+      @users_to_select = User.all.map{ |u| [ u.name, u.id ] }
+    else
+      @user = User.find_by(id: session[:user_id]) 
+    end
   end
   
   def index
@@ -28,7 +32,7 @@ class ReportsController < ApplicationController
     @transactions_grouped_by_program = @transactions_grouped_by_account.group(:program)
     @total_by_account = @transactions_grouped_by_account.sum(:amount)
     @total_by_program = @transactions_grouped_by_program.sum(:amount)
-    @total = @transactions.pluck(:amount) #needs to be summed in the view
+    @total = @transactions.pluck(:amount) #summed in the view
   end
   
   # http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-select_month

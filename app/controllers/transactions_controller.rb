@@ -14,10 +14,10 @@ class TransactionsController < ApplicationController
     if User.find_by(id: session[:user_id]).admin?
       @transactions = Transaction.all.paginate(:page => params[:page]).order(:date)
     else
-      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])) 
+      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date) 
     end
     @all_amounts = @transactions.pluck(:amount)
-    @total = @all_amounts.sum
+    @total = @all_amounts.sum  #this only sums what's on the page.  might not be needed on index view?
   end
   
   def index
@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
         format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
         format.json { redirect_to transactions_url, status: :created, location: @transaction }
       else
-        format.html { redirect_to transactions_url, notice: 'Your submission had errors, please try again' }
+        format.html { redirect_to new_transaction_path }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end

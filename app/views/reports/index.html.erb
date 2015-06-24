@@ -1,3 +1,4 @@
+<div class = "container">
 <h1>Reporting</h1>
 <%= form_tag("/reports/:user_id", method: "get") do %>
   <% if User.find_by(id: session[:user_id]).admin? %>
@@ -11,5 +12,6 @@
   End Date:   <%= select_date Date.today, prefix: :end_date %><br>
   <%= submit_tag("See transactions") %>
 <% end %>
+</div>
 
 

@@ -1,23 +1,9 @@
 <h1>New transaction</h1>
 
-<%= render 'list' %>
-
 <fieldset>
 <legend>Enter Transaction Details</legend>
-  <% if @transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
-      <ul>
-      <% @transaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 <%= render 'form' %>
 </fieldset>
 
-
-<%= link_to 'Back', transactions_path %>

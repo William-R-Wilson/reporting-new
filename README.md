@@ -1,19 +1,31 @@
+
+
 # To Do:
 
 ### Display: 
 
+#### Done
+
 - Name of user is shown in index view. Done
+
+#### Not Finished
 
 - Fields are responsive to screen size
 
 
 ### reporting:
 
+#### Done
+
 - reports by user, and with start and end dates can be run.  Done
 
 - reports show totals by account. Done
 
 - reports show totals by program and account. done
+
+#### Not finished
+
+- Reports have a printable view
 
 
 ### Tests:  
@@ -23,22 +35,26 @@
 
 ### Model: 
 
-- User has many transactions
-
 - Users can enter and edit their transactions. Done
 
 
 ### Authorization:
 
-- Basic authorization system is in place.  done
+#### Done
 
-- Admins can enter and delete users. done
+- Basic authorization system is in place. 
+
+- Admins can enter and delete users.
+
+#### Not finished:
 
 - Authorized users and admins can enter for other users.  
 
 - Coordinators can approve transactions. coordinators are linked to specific employees, ie coordinator x can approve for employee a,b and c but not employees d, e, f.
 
 - Admins can enter additional accounts and programs
+
+
 
 
 ### Future:  

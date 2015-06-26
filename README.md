@@ -48,7 +48,6 @@
 - Coordinators can approve transactions. coordinators are linked to specific employees, ie coordinator x can approve for employee a,b and c but not employees d, e, f.
 - Admins can enter additional accounts and programs
 
-
 ### Future:  
 
 - Uploading images of receipts with each transaction

@@ -95,3 +95,7 @@ td {
    margin: 5px;
    padding: 4px;
  }
+ 
+ .welcome {
+   float: right;
+ }

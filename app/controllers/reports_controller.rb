@@ -14,7 +14,7 @@ class ReportsController < ApplicationController
   # https://stackoverflow.com/questions/11563480/printing-stuff-in-rails-literally-to-a-printer
   # https://stackoverflow.com/questions/6406425/how-do-i-use-a-different-layout-for-a-specific-action
   
-  
+  # https://ariejan.net/2007/01/19/print-this-page-with-ruby-on-rails/
   
   def index
   end

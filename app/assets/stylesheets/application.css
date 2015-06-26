@@ -32,26 +32,26 @@ flash .danger {
 }
 
 a.nav_button {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
-    background-color: gray;
+    background-color: #7FBBFB;
     color: white;
     font-weight: bold;
     text-decoration: none;
-    margin : 10px;
-    padding: 5px 10px 5px 10px;
+    margin : 5px;
+    padding: 4px 2px 2px 2px;
     display: inline-block;
 }
 a.nav_button:hover {
-    border: 2px solid gray;
-    background-color: white;
+    border: 1px solid gray;
+    background-color: #ADD4FF;
     color: black;
 }
 
 a.row_button {
     border: 1px solid black;
     border-radius: 3px;
-    background-color: gray;
+    background-color: #7FBBFB;
     color: white;
     text-decoration: none;
     margin : 2px;
@@ -61,11 +61,27 @@ a.row_button {
 
 a.row_button:hover {
     border: 1px solid gray;
-    background-color: white;
+    background-color: #ADD4FF;
     color: black;
 }
   
-  
+.submit_button {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #FFA575;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin : 5px;
+    padding: 4px 8px 4px 8px;
+    display: inline-block;
+}  
+
+.submit_button:hover {
+    border: 2px solid gray;
+    background-color: #FFC5A6;
+    color: black;
+}
 
 td {
   text-align: center;
@@ -74,3 +90,8 @@ td {
 .container {
   margin-left: 50px;
 }
+
+ .form {
+   margin: 5px;
+   padding: 4px;
+ }

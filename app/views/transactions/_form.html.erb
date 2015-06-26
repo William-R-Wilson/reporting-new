@@ -11,8 +11,6 @@
   <% end %>
 
 <%= form_for(@transaction) do |f| %>
-
-
 <table>
   <tr>
     <th>Date</th>
@@ -33,7 +31,7 @@
       <%= f.text_field :vendor, class: "entry" %>
     </td>
     <td>
-      <%= f.text_field :who, class: "entry" %>
+      <%= f.text_field :who, class: "entry"  %>
     </td>
     <td>
     <%= f.text_field :what, class: "entry" %>
@@ -56,6 +54,6 @@
   </tr>
 </table>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create", class: "submit_button" %>
   </div>
 <% end %>

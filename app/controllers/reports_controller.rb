@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
-  before_filter :common_variables, :accounts_and_programs
   before_action :authorize
-  
+  before_filter :common_variables, :accounts_and_programs
+
   def common_variables
     if User.find_by(id: session[:user_id]).admin?
       @users_to_select = User.all.map{ |u| [ u.name, u.id ] }

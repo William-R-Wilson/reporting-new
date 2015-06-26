@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Listing users</h1>
 
 <table>
@@ -5,7 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th>Admin?</th>
     </tr>
   </thead>
 
@@ -14,8 +15,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><% if user.admin? %>Admin<% end %></td>
-        <td><%= link_to 'Show', user, class: 'row_button' %></td>
+        <td><% if user.admin? %>YES<% end %></td>
         <td><%= link_to 'Edit', edit_user_path(user), class: 'row_button' %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></td>
       </tr>
@@ -24,3 +24,4 @@
 </table>
 
 <br>
+</div>

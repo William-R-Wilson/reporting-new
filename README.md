@@ -1,6 +1,19 @@
+This is an expense reporting app.  it is customized for the workflow already in use by
+the organization it was designed for.  
+
+Upon signin, a user can create transactions. Once all transactions are entered, user can then 
+go to a reports dashboard and pull up all transactions between two dates.  The transactions are 
+totalled.  There is also a printable view which has hides navigation elements and provides other
+elements which are hidden in normal view.  
+
+Admin users can add users and view reports for all users.  
+
+
 # To Do:
 
 ### Display: 
+
+- need to adjust will_paginate settings
 
 #### Done
 
@@ -19,10 +32,7 @@
 - reports by user, and with start and end dates can be run.  Done
 - reports show totals by account. Done
 - reports show totals by program and account. done
-
-#### Not finished
-
-- Reports have a printable view
+- Reports have a printable view. Done
 
 
 ### Tests:  

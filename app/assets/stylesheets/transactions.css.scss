@@ -26,3 +26,17 @@
   max-width: 1200px
 }
 
+.amounts {
+  float: right;
+  margin-top: 20px;
+}
+
+@media print {
+  td {
+    border:  1px solid black;
+  }
+  list_line_even {
+    background-color: #FFFFFF;
+  }
+}
+

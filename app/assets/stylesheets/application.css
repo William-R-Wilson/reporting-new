@@ -89,6 +89,7 @@ td {
 
 .container {
   margin-left: 50px;
+  max-width: 1000px;
 }
 
  .form {
@@ -98,4 +99,24 @@ td {
  
  .welcome {
    float: right;
+ }
+ 
+ .approval {
+   display: none;
+ }
+ 
+ @media all {
+	.page-break	{ display: none; }
+}
+
+ 
+ @media print {
+   a, a.nav_button, h1 {
+     display: none;
+   }
+   .approval {
+     display: inline;
+     margin-left: 150px;
+   }
+   .page-break	{ display: block; page-break-before: always; }
  }

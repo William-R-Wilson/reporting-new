@@ -1,4 +1,9 @@
-<h2>Purchases made by <%= @user.name %> from <%= @start_date.strftime("%b")+ " " + @start_date.day.to_s %> to <%= @end_date.strftime("%b") + " " + @end_date.day.to_s %></h2>
+
+
+<h2>Purchases made by <%= @user.name %> from <%= @start_date.strftime("%b")+ 
+                      " " + @start_date.day.to_s %> to <%= @end_date.strftime("%b") + 
+                      " " + @end_date.day.to_s %></h2>
+
 <table>
   <thead>
     <tr>
@@ -31,4 +36,4 @@
     <% end %>
   </tbody>
 </table>
-<div class = "paginate"><%= will_paginate @transactions_for_display %></div>
+<div class = "pagination"><span id="page">Page:</span><%= will_paginate @transactions_for_display %></div>

@@ -31,6 +31,10 @@
   margin-top: 20px;
 }
 
+.enter_transactions li {
+  display: inline-block;
+}
+
 @media print {
   td {
     border:  1px solid black;

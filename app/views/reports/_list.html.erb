@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @transactions.each do |transaction| %>
+    <% @transactions_for_display.each do |transaction| %>
       <tr class = "<%= cycle('list_line_even', 'list_line_odd') %>">
         <td><%= transaction.date %></td>
         <td><%= transaction.vendor %></td>
@@ -31,3 +31,4 @@
     <% end %>
   </tbody>
 </table>
+<div class = "paginate"><%= will_paginate @transactions_for_display %></div>

@@ -3,7 +3,7 @@ the organization it was designed for.
 
 Upon signin, a user can create transactions. Once all transactions are entered, user can then 
 go to a reports dashboard and pull up all transactions between two dates.  The transactions are 
-totalled.  There is also a printable view which has hides navigation elements and provides other
+totalled.  There is also a printable view which hides navigation elements and provides other
 elements which are hidden in normal view.  
 
 Admin users can add users and view reports for all users.  
@@ -13,7 +13,7 @@ Admin users can add users and view reports for all users.
 
 ### Display: 
 
-- need to adjust will_paginate settings
+- need to adjust will_paginate settings. Done
 
 #### Done
 

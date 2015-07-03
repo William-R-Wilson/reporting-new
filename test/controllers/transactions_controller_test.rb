@@ -3,6 +3,8 @@ require 'test_helper'
 class TransactionsControllerTest < ActionController::TestCase
   setup do
     @transaction = transactions(:one)
+    @user = users(:one)
+    login_as(@user)
   end
 
 

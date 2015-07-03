@@ -10,16 +10,29 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   
-  def login_as(user)
-    session[:user_id] = users(user).id
+  def login_as(user, options = {})
+    password = options[:password] || 'password'
+    if integration_test?
+      post login_path, session: { name: user.name,
+                                  password: user.password}
+    else  
+
+      session[:user_id] = user.id
+    end
   end 
   
   def logout
     session.delete :user_id
   end 
   
-  def setup
-    login_as :one if defined? session
-  end 
+  #def setup(user)
+  #  login_as :user if defined? session
+  #end 
+  
+  private
+  
+    def integration_test?
+      defined?(post_via_redirect)
+    end
   
 end

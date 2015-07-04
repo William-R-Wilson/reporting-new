@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_filter :accounts_and_programs  #in application_controller
+  #before_filter :accounts_and_programs  #in application_controller
   
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :authorize
@@ -18,6 +18,9 @@ class TransactionsController < ApplicationController
     end
     @all_amounts = @transactions.pluck(:amount)
     @total = @all_amounts.sum  #this only sums what's on the page.  might not be needed on index view?
+    @programs = Program.all.map { |program, id| [program.name, program.id] }
+    @accounts = Account.all.map { |account, id| [account.name, account.id] }
+    
   end
   
   def index
@@ -33,6 +36,7 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @user_name = current_user.name
+
   end
 
   # GET /transactions/1/edit
@@ -87,6 +91,6 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:date, :vendor, :who, :what, :where, :why, :string, :amount, :precision, :program, :account)
+      params.require(:transaction).permit(:date, :vendor, :who, :what, :where, :why, :string, :amount, :precision, :program_id, :account_id)
     end
 end

@@ -9,11 +9,6 @@
   <strong>Total of all Transactions:  <%= number_to_currency(@total.sum) %></strong>
   <span class = "approval"><strong>Approved by:_______________________________</strong></span>
   <div class="page-break"></div>
-  <div class = "amounts">
-  <% @total_by_program.each do |program, total| %>
-    <li><%= program[1] + " " + program[0] + ": " + number_to_currency(total) %></li>
-  <% end %>
-  </div>
   <div><%= link_to "Print this page", "#", onclick: "printpage()" %></div>
 
 </div>

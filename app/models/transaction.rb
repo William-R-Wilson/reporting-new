@@ -4,8 +4,11 @@ class Transaction < ActiveRecord::Base
   validates :vendor, :what, presence: true
   validates_presence_of :who, message: "can't be blank.  You can enter your own name"
   belongs_to :user  
+  belongs_to :account
+  belongs_to :program
   
   self.per_page = 12
-    
+  
+
 
 end

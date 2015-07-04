@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authorize
-  before_filter :common_variables, :accounts_and_programs
+  before_filter :common_variables
 
   def common_variables
     if User.find_by(id: session[:user_id]).admin?
@@ -37,11 +37,14 @@ class ReportsController < ApplicationController
     @transactions = Transaction.where(  'user_id = ? AND date BETWEEN ? AND ?', 
                                         @user_id, @start_date, @end_date)
     @transactions_for_display = @transactions.paginate(:page => params[:page]).order(:date)                                    
-    @transactions_grouped_by_account = @transactions.group(:account)
+    
+    #need to rework the totals by accounts and programs - not sure if I'll be using this feature.  Old code below: 
+    #@transactions_grouped_by_account = @transactions.group(:account)
     #group by program
-    @transactions_grouped_by_program = @transactions_grouped_by_account.group(:program)
-    @total_by_account = @transactions_grouped_by_account.sum(:amount)
-    @total_by_program = @transactions_grouped_by_program.sum(:amount)
+    #@transactions_grouped_by_program = @transactions_grouped_by_account.group(:program)
+    #@total_by_account = @transactions_grouped_by_account.sum(:amount)
+    #@total_by_program = @transactions_grouped_by_program.sum(:amount)
+    
     @total = @transactions.pluck(:amount) #summed in the view
   end
   

@@ -21,10 +21,10 @@
      <li><div><%= f.label :where %></div><%= f.text_field :where, class: "entry" %></li>
      <li><div><%= f.label :why %></div><%= f.text_field :why, class: "entry" %></li>
      <li><div><%= f.label :amount %></div><%= f.text_field :amount, class: "amount" %></li>
-     <li><div><%= f.label :program %></div><%= select(:transaction, :program, options_for_select(@programs)) %></li>
-     <li><div><%= f.label :account %></div><%= select(:transaction, :account, options_for_select(@accounts)) %></li>
-</div>
+     <li><div><%= f.label :program %></div><%= select(:transaction, :program_id, options_for_select(@programs)) %></li>
+     <li><div><%= f.label :account %></div><%= select(:transaction, :account_id, options_for_select(@accounts)) %></li>
   <div class="actions">
     <%= f.submit "Create", class: "submit_button" %>
   </div>
+</div>
 <% end %>

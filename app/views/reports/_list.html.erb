@@ -30,8 +30,8 @@
         <td><%= transaction.where %></td>
         <td><%= transaction.why %></td>
         <td><%= number_to_currency(transaction.amount) %></td>
-        <td><%= transaction.program %></td>
-        <td><%= transaction.account %></td>
+        <td><%= transaction.program.name %></td>
+        <td><%= transaction.account.name %></td>
       </tr>
     <% end %>
   </tbody>

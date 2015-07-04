@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hours: 1
+  vacation: 1
+  sick: 1
+
+two:
+  hours: 1
+  vacation: 1
+  sick: 1

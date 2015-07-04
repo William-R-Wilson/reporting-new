@@ -20,7 +20,6 @@ class TransactionsController < ApplicationController
     @total = @all_amounts.sum  #this only sums what's on the page.  might not be needed on index view?
     @programs = Program.all.map { |program, id| [program.name, program.id] }
     @accounts = Account.all.map { |account, id| [account.name, account.id] }
-    
   end
   
   def index
@@ -36,7 +35,6 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @user_name = current_user.name
-
   end
 
   # GET /transactions/1/edit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704000640) do
+ActiveRecord::Schema.define(version: 20150704172743) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20150704000640) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "time_records", force: true do |t|
+    t.integer  "hours"
+    t.integer  "vacation"
+    t.integer  "sick"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.date     "date"
+  end
+
+  add_index "time_records", ["user_id"], name: "index_time_records_on_user_id"
 
   create_table "transactions", force: true do |t|
     t.date     "date"

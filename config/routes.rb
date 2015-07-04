@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :transactions
   
+  resources :time_records
+  
   resources :accounts
   resources :programs
   

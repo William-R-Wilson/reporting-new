@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true  
   has_many :transactions
+  has_many :time_records
   has_secure_password
   after_destroy :ensure_an_admin_remains
   

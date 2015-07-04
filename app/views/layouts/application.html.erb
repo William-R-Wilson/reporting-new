@@ -14,9 +14,9 @@
 <ul>
 <% if logged_in? %>
   <li><%= link_to "All Transactions", transactions_path, class: "nav_button" %></li>
+  <li><%= link_to "Time Records", time_records_path, class: "nav_button" %></li>
   <li><%= link_to "Reports", reports_path, class: "nav_button" %></li>
   <li><%= link_to "Logout", logout_path, method: :delete, class: "nav_button" %></li>
-
 <% end %>
 </ul>
 </div>
@@ -31,6 +31,7 @@
 <ul>
 <% if logged_in? %>
   <li><%= link_to 'New Transaction', new_transaction_path, class: "nav_button" %></li>
+  <li><%= link_to "Enter Time", new_time_record_path, class: "nav_button" %></li>
 <% end %>
 <% if logged_in? && is_admin? %>
   <li><%= link_to "Admin menu", admin_path, class: "nav_button" %></li>

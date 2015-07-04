@@ -1,0 +1,26 @@
+<meta name="viewport" content="width=device-width" />
+
+  <% if @timerecord.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timerecord.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @timerecord.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class = "enter_time">
+<%= form_for(@timerecord) do |f| %> 
+
+     <li><div><%= f.label :date %></div><%= f.date_select :date %></li>
+     <li><div><%= f.label :hours %></div><%= f.text_field :hours, value: "80" %></li>
+     <li><div><%= f.label :vacation %></div><%= f.text_field :vacation, value: "0" %></li>
+     <li><div><%= f.label :sick %></div><%= f.text_field :sick, value: "0" %></li>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "submit_button" %>
+  </div>
+</div>
+<% end %>

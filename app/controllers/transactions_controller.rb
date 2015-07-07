@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   before_action :authorize
   
   
-  before_filter :common_variables, only: [:index, :edit, :new]
+  before_filter :common_variables
 
   # GET /transactions
   # GET /transactions.json

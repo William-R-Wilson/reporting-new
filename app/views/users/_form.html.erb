@@ -30,10 +30,19 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :splits %><br>
+    <%= f.text_field :splits %>
+    Programs: 
+  <% @programs.each do |program| %>
+    <%= program.name + ", " %>
+  <% end %>
+  </div>
   <div class = "field">
     <%= f.label :admin %><br>
     <%= f.check_box :admin, default: false %>
   </div>
+
   <div class="actions">
     <%= f.submit "Create", class: "submit_button" %>
   </div>

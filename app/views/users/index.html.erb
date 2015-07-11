@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Splits</th>
       <th>Admin?</th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.splits %></td>
         <td><% if user.admin? %>YES<% end %></td>
         <td><%= link_to 'Edit', edit_user_path(user), class: 'row_button' %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></td>

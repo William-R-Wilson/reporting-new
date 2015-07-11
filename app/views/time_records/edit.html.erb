@@ -16,10 +16,10 @@
 <div class = "enter_time">
 <%= form_for(@timerecord) do |f| %> 
 
-     <li><div><%= f.label :date %></div><%= f.date_select :date %></li>
-     <li><div><%= f.label :hours %></div><%= f.text_field :hours, value: @timerecord.hours %></li>
-     <li><div><%= f.label :vacation %></div><%= f.text_field :vacation, value: @timerecord.vacation %></li>
-     <li><div><%= f.label :sick %></div><%= f.text_field :sick, value: @timerecord.sick %></li>
+     <div><%= f.label :date %></div><%= f.select(:date, options_for_select(@pay_periods.sort { |x,y| y <=> x }), {}, {class: "selector"}) %>
+     <div><%= f.label :hours %></div><%= f.text_field :hours, value: @timerecord.hours %>
+     <div><%= f.label :vacation %></div><%= f.text_field :vacation, value: @timerecord.vacation %>
+     <div><%= f.label :sick %></div><%= f.text_field :sick, value: @timerecord.sick %>
 
   <div class="actions">
     <%= f.submit "Update", class: "submit_button" %>

@@ -64,7 +64,15 @@ a.row_button:hover {
     background-color: #ADD4FF;
     color: black;
 }
-  
+ 
+.list_line_even { 
+  background-color: #E6F2FF;
+}
+
+.list_line_odd {
+  background-color: #FFFFFF;
+}
+ 
 .submit_button {
     border: 1px solid black;
     border-radius: 5px;
@@ -107,6 +115,10 @@ td {
  
  .heading {
    line-height: 1.5;
+ }
+ 
+ .sub_head {
+   line-height: 1.25;
  }
 
  

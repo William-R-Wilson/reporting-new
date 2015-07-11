@@ -22,12 +22,12 @@ class ReportsController < ApplicationController
 
   
   def show
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by(id: params[:user_id])  #why is this in here twice? - see Common_variables
     @start_date = Date.civil(params[:start_date][:year].to_i, 
                   params[:start_date][:month].to_i, params[:start_date][:day].to_i)  
     @end_date = Date.civil(params[:end_date][:year].to_i, 
                 params[:end_date][:month].to_i, params[:end_date][:day].to_i)
-    @user_id = params[:user_id]
+    @user_id = params[:user_id] #why is this here?
     @transactions = Transaction.where(  'user_id = ? AND date BETWEEN ? AND ?', 
                                         @user_id, @start_date, @end_date)
     @transactions_for_display = @transactions.paginate(:page => params[:page]).order(:date)                                    

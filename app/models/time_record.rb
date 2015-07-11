@@ -1,5 +1,6 @@
 class TimeRecord < ActiveRecord::Base
   belongs_to :user
+  belongs_to :pay_period
   before_validation :default_values
   validates_presence_of :user_id
   validates_numericality_of :hours, :sick, :vacation

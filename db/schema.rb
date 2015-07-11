@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704172743) do
+ActiveRecord::Schema.define(version: 20150709114251) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pay_periods", force: true do |t|
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150704172743) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",           default: false
+    t.string   "splits"
   end
 
 end

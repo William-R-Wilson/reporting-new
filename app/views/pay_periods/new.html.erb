@@ -1,0 +1,7 @@
+<h1>Add a pay period end date</h1>
+
+<%= form_for @period do |f| %>
+   <%= f.label :date %>
+   <%= f.date_select :date %>
+   <%= f.submit "Create", class: "submit_button" %>
+<% end %>

@@ -1,0 +1,53 @@
+<h2>Summary</h2>
+<h3>Pay period ending <%= @period.date %></h3>
+<div id = "list_container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Hours worked</th>
+        <th>Vacation</th>
+        <th>Sick</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @time_records.each do |t| %>
+    <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td><%= t.user.name %></td><td><%= t.hours %></td><td><%= t.vacation %></td><td><%= t.sick %></td>
+    </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h2>Allocations By User</h2>
+  <% @time_records.each do |t| %>
+    <h3><%= t.user.name %></h3>
+      <% users_split = convert_allocations(t.user.splits) %>
+        <div id = "list_container">
+          <table class = "allocations_table">
+            <thead>
+              <tr>
+                <th>Program</th>
+                <th>Hours worked</th>
+                <th>Vacation</th>
+                <th>Sick</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% users_split.each do |allocation| %> 
+                <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
+                  <td><%= allocation[0] %></td>
+                  <td><%= t.hours.to_f * allocation[1] %></td>
+                  <td><%= t.vacation.to_f * allocation[1] %></td>
+                  <td><%= t.sick.to_f * allocation[1] %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <div><%= t.user.name %>'s splits:  <%= t.user.splits %></div>
+  <% end %>
+
+
+

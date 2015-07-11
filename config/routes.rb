@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   resources :accounts
   resources :programs
   
+  resources :pay_periods
+  
   resource :admin
+  
+  resources :time_reports
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,6 @@
+<% @periods.each do |period| %>
+  <ul>
+    <li><%= period.date %>, <%= link_to "See Report", pay_period_path(period), class: "row_button" %> <%= link_to 'Edit', edit_pay_period_path(period), class: 'row_button' %> 
+        <%= link_to 'Destroy', period, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></li>
+  </ul>
+<% end %>

@@ -8,6 +8,7 @@ class TimeRecordsController < ApplicationController
     else
       @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date) 
     end
+    
   end 
 
   def show
@@ -17,10 +18,12 @@ class TimeRecordsController < ApplicationController
   def new 
     @timerecord = TimeRecord.new
     @user_name = current_user.name
+    @pay_periods = PayPeriod.pluck(:date)
   end
   
   def edit
     @timerecord = TimeRecord.find(params[:id])
+    @pay_periods = PayPeriod.pluck(:date)
   end  
   
   def create
@@ -55,7 +58,7 @@ class TimeRecordsController < ApplicationController
     @timerecord = TimeRecord.find(params[:id])  
     @timerecord.destroy
     respond_to do |format|
-      format.html { redirect_to time_records_url, notice: 'Time Record was successfully destroyed.' }
+      format.html { redirect_to time_records_url, notice: 'Time Record was successfully deleted.' }
       format.json { head :no_content }
     end
   end

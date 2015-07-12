@@ -2,7 +2,9 @@
 <% @accounts.each do |account| %>
   
   <ul>
-    <li><%= account.name %></li>
+    <li><%= account.name %><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %> </li>
   </ul>
   
 <% end %>
+
+<%= link_to "Add a new account", new_account_path %>

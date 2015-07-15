@@ -30,7 +30,7 @@
 <div id = "footer">
 <ul>
 <% if logged_in? %>
-  <li><%= link_to 'New Transaction', new_transaction_path, class: "nav_button", title: "Add a new credit card transaction" %></li>
+  <li><%= link_to 'NewTransaction', new_transaction_path, class: "nav_button", title: "Add a new credit card transaction" %></li>
   <li><%= link_to "Enter Time", new_time_record_path, class: "nav_button", title: "Enter your hours worked" %></li>
 <% end %>
 <% if logged_in? && is_admin? %>

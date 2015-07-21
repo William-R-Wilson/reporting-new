@@ -6,9 +6,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:name])
-    if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      #session[:user_id] = user.id
+      log_in(user)
+      remember user  #this is also not working
       redirect_to transactions_path
     else
       redirect_to login_url, alert: "Invalid user/password combination"
@@ -16,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    log_out if logged_in?
     redirect_to login_url, notice: "Logged out"
   end
   

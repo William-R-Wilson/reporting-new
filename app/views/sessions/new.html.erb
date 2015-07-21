@@ -3,19 +3,19 @@
 <% if flash[:alert] %>
   <%= flash[:alert] %>
 <% end %>
-<%= form_tag do %>
+<%= form_for(:session, url: login_path) do |f| %>
   <fieldset>
     <legend>Please Log In</legend>
     <div class = "form">
-      <%= label_tag :name, "Name:" %>
-      <%= text_field_tag :name, params[:name] %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
     </div>
     <div class="form">
-      <%= label_tag :password, "Password:" %>
-      <%= password_field_tag :password, params[:password] %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
     </div>
     <div>
-      <%= submit_tag("Login", class: "submit_button") %>
+      <%= f.submit "Login", class: "submit_button" %>
     </div>
   </fieldset>
 <% end %>

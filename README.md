@@ -11,10 +11,9 @@ Admin users can add users and view reports for all users.
 
 # To Do:
 
-- add cookies
-- add time report summaries/dashboard
 - add email reminders
-- add pay periods and statement dates
+- add statement dates
+- add friendly forwarding
 
 ### Display: 
 
@@ -28,8 +27,9 @@ Admin users can add users and view reports for all users.
 ### reporting:
 
 - reports by user, and with start and end dates can be run. 
+- Reports have a printable view. 
+- time report summaries/dashboard completed
 
-- Reports have a printable view.
 
 #### Not finished: 
 - reports show totals by account. taken out of printable view

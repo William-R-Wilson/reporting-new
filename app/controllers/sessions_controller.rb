@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       #session[:user_id] = user.id
       log_in(user)
-      remember user  #this is also not working
-      redirect_to transactions_path
+      remember user 
+      redirect_back_or transactions_path
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end

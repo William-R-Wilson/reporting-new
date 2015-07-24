@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150715110952) do
     t.string   "what"
     t.string   "where"
     t.string   "why"
+    t.string   "string"
     t.decimal  "amount",     precision: 6, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"

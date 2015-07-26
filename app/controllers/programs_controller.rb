@@ -19,11 +19,11 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    @program = Program.find_by(params[:name])
+    @program = Program.find(params[:id])
   end
 
   def update
-    @program = Program.find_by(params[:name])
+    @program = Program.find(params[:id])
     respond_to do |format|
       if @program.update(program_params)
         format.html { redirect_to programs_url, notice: 'Program was successfully edited.' }
@@ -36,6 +36,12 @@ class ProgramsController < ApplicationController
   end
 
   def destroy
+    @program = Program.find(params[:id])
+    @program.destroy
+    respond_to do |format|
+        format.html { redirect_to programs_url, notice: "Program was successfully deleted." }
+        format.json { head :no_content }
+    end
   end
 
   def index
@@ -45,6 +51,6 @@ class ProgramsController < ApplicationController
   private 
   
     def program_params
-      params.require(:program).permit(:name)
+      params.require(:program).permit(:name, :id)
     end
 end

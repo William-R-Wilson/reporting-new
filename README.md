@@ -8,6 +8,9 @@ Once all transactions are entered, user can then go to a reports dashboard and p
 transactions between two dates.  The transactions are totalled.  There is also a printable 
 view which hides navigation elements and provides other elements which are hidden in normal view.  
 
+Friendly forwarding and cookies allow users to click on a link and go straight to the task desired.  
+After initial login, admins can send an email with the link and users can complete tasks with a single click.  
+
 Admin users can add users and view reports for all users.  
 
 
@@ -15,7 +18,7 @@ Admin users can add users and view reports for all users.
 
 - add email reminders
 - add statement dates
-- add friendly forwarding
+- add friendly forwarding - done
 
 ### Display: 
 

@@ -1,15 +1,24 @@
+<div class = "container"
 <h1>All Programs</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Program</th>
+			</tr>
+		</thead>
+		<tbody>
 
 
   <% @programs.each do |p| %>	
-  
-  <ul>
-    <li><%= p.name %> 
-    <%= link_to "Edit", edit_program_path(p), class: "row_button" %> 
-    <%= link_to "Delete", p, method: :delete, data: { confirm: 'Are you sure?' }, class: "row_button" %>
-  </li>
-  </ul>
-  
-<% end %>
+  	<tr>
+	    <td><%= p.name %></td> 
+	    <td><%= link_to "Edit", edit_program_path(p), class: "row_button" %></td> 
+	    <td><%= link_to "Delete", p, method: :delete, data: { confirm: 'Are you sure?' }, class: "row_button" %></td>
+  	</tr>
+  	<% end %>
+  </tbody>
+</table>
 
+</div>
 <%= link_to "Add a program", new_program_path %>

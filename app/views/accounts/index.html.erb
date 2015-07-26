@@ -1,10 +1,23 @@
-<h1>Accounts#index</h1>
-<% @accounts.each do |account| %>
-  
-  <ul>
-    <li><%= account.name %><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %> </li>
-  </ul>
-  
-<% end %>
+<h1>All Accounts</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Account</th>
+			</tr>
+		</thead>
+		<tbody>
+
+
+  <% @accounts.each do |a| %>	
+  	<tr>
+	    <td><%= a.name %></td> 
+	    <td><%= link_to "Edit", edit_account_path(a), class: "row_button" %></td> 
+	    <td><%= link_to "Delete", a, method: :delete, data: { confirm: 'Are you sure?' }, class: "row_button" %></td>
+  	</tr>
+  	<% end %>
+  </tbody>
+</table>
+
 
 <%= link_to "Add a new account", new_account_path %>

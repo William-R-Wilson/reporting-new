@@ -11,6 +11,7 @@ class PayPeriodsController < ApplicationController
   def show
     @period = PayPeriod.find(params[:id])
     @time_records = TimeRecord.where("date = ?", @period.date)
+    @users = User.all
   end
 
 

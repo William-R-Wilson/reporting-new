@@ -50,4 +50,11 @@
   <% end %>
 
 
+<h2>All Users Splits</h2>
+<div>
+<% @users.each do |u| %>
+  <div><%= u.name %>'s splits: <%= u.splits %></div>
+<% end %>
+</div>
+
 

@@ -3,7 +3,7 @@
 <% @programs.each do |p| %>
   
   <ul>
-    <li><%= p.name %><% link_to "Edit", edit_program_path(p), class: "row-button" %> <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></li>
+    <li><%= p.name %> <%= link_to "Edit", edit_program_path(p), class: "row-button" %> <%= link_to "Delete", p, method: :delete, data: { confirm: 'Are you sure?' }, class: "row_button" %></li>
   </ul>
   
 <% end %>

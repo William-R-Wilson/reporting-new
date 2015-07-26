@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :transactions
   has_many :time_records
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, on: :create, length: { minimum: 8 }
   after_destroy :ensure_an_admin_remains
   attr_accessor :remember_token
   

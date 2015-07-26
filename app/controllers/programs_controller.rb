@@ -18,6 +18,23 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def edit
+    @program = Program.find_by(params[:name])
+  end
+
+  def update
+    @program = Program.find_by(params[:name])
+    respond_to do |format|
+      if @program.update(program_params)
+        format.html { redirect_to programs_url, notice: 'Program was successfully edited.' }
+        format.json { redirect_to programs_url, status: :ok, location: @programs }
+      else
+        format.html { render :edit }
+        format.json { render json: @program.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
   end
 

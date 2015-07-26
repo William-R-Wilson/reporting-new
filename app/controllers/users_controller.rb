@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.order(:name)
+    @programs = Program.all
   end
 
   # GET /users/1
@@ -82,6 +83,7 @@ class UsersController < ApplicationController
     
     def set_user
       @user = User.find(params[:id])
+      @programs = Program.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

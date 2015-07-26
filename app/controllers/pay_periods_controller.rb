@@ -12,8 +12,9 @@ class PayPeriodsController < ApplicationController
     @period = PayPeriod.find(params[:id])
     @time_records = TimeRecord.where("date = ?", @period.date)
     @users = User.all
+    @not_reported = not_reported
+    @users_not_reported = users_not_reported
   end
-
 
   
   def new
@@ -63,7 +64,28 @@ class PayPeriodsController < ApplicationController
   
     def period_params
       params.require(:pay_period).permit(:id, :date)
-    end  
+    end 
 
+    def not_reported
+      arr = []
+      users = User.all
+      period = PayPeriod.find(params[:id])
+      #time_records = TimeRecord.where("date = ?", period.date)
+      users.each do |u|
+        if TimeRecord.where("user_id = ? and date = ?", u.id, period.date).empty?
+          arr.push(u.id)
+        end
+      end
+      return arr
+    end
+
+    def users_not_reported
+      arr = not_reported
+      users = []
+      arr.each do |e|
+        users.push(User.find_by(id: e)) 
+      end
+      return users
+    end
 
 end

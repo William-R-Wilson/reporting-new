@@ -7,15 +7,15 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "should login" do
-    dave = users(:one)
-    post :create, name: dave.name, password: 'secret'
+    spock = users(:one)
+    post :create, email: spock.email, password: 'secretest'
     assert_redirected_to transactions_path
-    assert_equal dave.id, session[:user_id]
+    assert_equal spock.id, session[:user_id]
   end
   
   test "should fail login" do 
-    dave = users(:one)
-    post :create, name: dave.name, password: "wrong"
+    spock = users(:one)
+    post :create, email: spock.email, password: "wrong"
     assert_redirected_to login_url
   end
 

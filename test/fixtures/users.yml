@@ -3,11 +3,11 @@
 one:
   name: "Spock"
   email: "Spock@vulcan.com"
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: true
 
 two:
   name: "James T. Kirk"
   email: "james@t.kirk.com"
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: false

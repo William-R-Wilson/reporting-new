@@ -27,13 +27,13 @@ class TimeRecordsController < ApplicationController
   end  
   
   def create
-    @timerecord = current_user.time_records.build(timerecord_params)
+    @timerecord = current_user.time_records.create(timerecord_params)
     respond_to do |format|
       if @timerecord.save
         format.html { redirect_to time_records_url, notice: 'Transaction was successfully created.' }
         format.json { redirect_to time_records_url, status: :created, location: @timerecord }
       else
-        format.html { render :new }
+        format.html { redirect_to new_time_record_url, notice: "There were errors in your submission, please try again" }
         format.json { render json: @timerecord.errors, status: :unprocessable_entity }
       end
     end

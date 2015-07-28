@@ -15,9 +15,9 @@
 <%= form_for(@timerecord) do |f| %> 
 
      <div><%= f.label :date %></div><%= f.select(:date, options_for_select(@pay_periods.sort { |x,y| y <=> x }), {}, {:class => "selector"}) %>
-     <div><%= f.label :hours %></div><%= f.text_field :hours, value: "80" %>
-     <div><%= f.label :vacation %></div><%= f.text_field :vacation, value: "0" %>
-     <div><%= f.label :sick %></div><%= f.text_field :sick, value: "0" %>
+     <div><%= f.label :hours %></div><%= f.number_field :hours, value: "80" %>
+     <div><%= f.label :vacation %></div><%= f.number_field :vacation, value: "0" %>
+     <div><%= f.label :sick %></div><%= f.number_field :sick, value: "0" %>
 
   <div class="actions">
     <%= f.submit "Submit", class: "submit_button" %>

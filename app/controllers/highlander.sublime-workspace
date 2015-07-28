@@ -1,0 +1,218 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"user",
+				"users_not_reported"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sessions_controller.rb",
+			"settings":
+			{
+				"buffer_size": 562,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/will/rails/highlander_reporting/highlander_reporting/test/fixtures/users.yml",
+		"/home/will/rails/highlander_reporting/highlander_reporting/test/controllers/sessions_controller_test.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/test/controllers/accounts_controller_test.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/controllers/pay_periods_controller.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/pay_periods/show.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/models/time_record.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/db/schema.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/controllers/programs_controller.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/accounts/edit.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/accounts/new.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/controllers/accounts_controller.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/accounts/index.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/helpers/pay_period_helper.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/models/user.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/models/pay_period.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/programs/index.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/README.md",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/controllers/users_controller.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/users/index.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/programs/edit.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/users/edit.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/users/_form.html.erb",
+		"/home/will/railsbridge/suggestotron/app/views/topics/index.html.erb",
+		"/home/will/railsbridge/suggestotron/db/schema.rb",
+		"/home/will/railsbridge/suggestotron/app/controllers/topics_controller.rb",
+		"/home/will/railsbridge/suggestotron/app/views/topics/index.json.jbuilder",
+		"/home/will/railsbridge/suggestotron/config/routes.rb",
+		"/home/will/railsbridge/suggestotron/app/models/topic.rb",
+		"/home/will/railsbridge/suggestotron/app/models/vote.rb",
+		"/home/will/railsbridge/suggestotron/Gemfile",
+		"/home/will/railsbridge/suggestotron/app/views/layouts/application.html.erb",
+		"/home/will/railsbridge/suggestotron/log/development.log",
+		"/home/will/Ruby/hello.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/Gemfile",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/programs/new.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/programs/destroy.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/transactions/_list.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/db/seeds.rb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/transactions/index.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/transactions/_form.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/views/transactions/new.html.erb",
+		"/home/will/rails/highlander_reporting/highlander_reporting/app/controllers/transactions_controller.rb",
+		"/etc/X11/xorg.conf",
+		"/home/will/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/will/Documents/ruby/hello_world.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sessions_controller.rb",
+					"settings":
+					{
+						"buffer_size": 562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								280,
+								280
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,25 @@
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Hours worked</th>
+        <th>Vacation</th>
+        <th>Sick</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @timerecord.date %></td>
+        <td><%= @timerecord.user.name %></td>
+        <td><%= @timerecord.hours %></td>
+        <td><%= @timerecord.vacation %></td>
+        <td><%= @timerecord.sick %></td>
+        <td><%= @timerecord.hours+@timerecord.sick+@timerecord.vacation %></td>
+        <td><%= link_to 'Edit', edit_time_record_path(@timerecord), class: 'row_button' %></td>
+        <td><%= link_to 'Delete', @timerecord, method: :delete, data: { confirm: 'Are you sure?' }, 
+        class: 'row_button' %></td>
+      </tr>
+    </tbody>
+  </table>

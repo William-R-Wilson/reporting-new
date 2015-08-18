@@ -43,9 +43,9 @@
               <% users_split.each do |allocation| %> 
                 <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
                   <td><%= allocation[0] %></td>
-                  <td><%= t.hours.to_f * allocation[1] %></td>
-                  <td><%= t.vacation.to_f * allocation[1] %></td>
-                  <td><%= t.sick.to_f * allocation[1] %></td>
+                  <td><%= (t.hours.to_f * allocation[1]).round(2) %></td>
+                  <td><%= (t.vacation.to_f * allocation[1]).round(2) %></td>
+                  <td><%= (t.sick.to_f * allocation[1]).round(2) %></td>
                 </tr>
               <% end %>
             </tbody>

@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Percent Time</th>
       <th>Splits</th>
       <th>Admin?</th>
     </tr>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.percent_time %></td>
         <td><%= user.splits %></td>
         <td><% if user.admin? %>YES<% end %></td>
         <td><%= link_to 'Edit', edit_user_path(user), class: 'row_button' %></td>

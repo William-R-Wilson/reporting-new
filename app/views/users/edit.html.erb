@@ -12,10 +12,10 @@
       </ul>
     </div>
   <% end %>
-  
+
   <fieldset>
   <legend>Enter User Details</legend>
-  
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -23,6 +23,10 @@
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :percentTime %><br>
+    <%= f.text_field :percent_time %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
@@ -35,7 +39,7 @@
   <div class="field">
     <%= f.label :splits %><br>
     <%= f.text_field :splits %>
-    Programs: 
+    Programs:
   <% @programs.each do |program| %>
     <%= program.name + ", " %>
   <% end %>

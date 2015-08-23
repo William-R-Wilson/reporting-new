@@ -18,7 +18,7 @@
       <td><%= t.hours %></td>
       <td><%= t.vacation %></td>
       <td><%= t.sick %></td>
-      <td><%= t.hours + t.vacation + t.sick %></td>    
+      <td><%= t.hours + t.vacation + t.sick %></td>
     </tr>
   <% end %>
     </tbody>
@@ -40,7 +40,7 @@
               </tr>
             </thead>
             <tbody>
-              <% users_split.each do |allocation| %> 
+              <% users_split.each do |allocation| %>
                 <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
                   <td><%= allocation[0] %></td>
                   <td><%= (t.hours.to_f * allocation[1]).round(2) %></td>
@@ -57,10 +57,11 @@
 
 <h2>Users who did not report: </h2>
 <div>
-    
+
     <% @users_not_reported.each do |u| %>
       <h3><%= u.name %></h3>
         <% users_split = convert_allocations(u.splits) %>
+        <% percentage = u.percent_time * 80 %>
         <div id = "list_container">
           <table class = "allocations_table">
             <thead>
@@ -70,10 +71,10 @@
               </tr>
             </thead>
             <tbody>
-              <% users_split.each do |allocation| %> 
+              <% users_split.each do |allocation| %>
                 <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
                   <td><%= allocation[0] %></td>
-                  <td><%= 80 * allocation[1] %></td>
+                  <td><%= percentage * allocation[1] %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -83,5 +84,3 @@
   <% end %>
 
 </div>
-
-

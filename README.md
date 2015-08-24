@@ -4,8 +4,8 @@ This is an expense and time reporting app.  it is customized for the workflow al
 the organization it was designed for.  
 
 Upon signin, a user can record credit card transactions or enter a report of hours worked.  
-Once all transactions are entered, user can then go to a reports dashboard and pull up all 
-transactions between two dates.  The transactions are totalled.  There is also a printable 
+Once all transactions are entered, user can then go to a reports dashboard and pull up all
+transactions between two dates.  The transactions are totalled.  There is also a printable
 view which hides navigation elements and provides other elements which are hidden in normal view.  
 
 Friendly forwarding and cookies allow users to click on a link and go straight to the task desired.  
@@ -18,9 +18,11 @@ Admin users can add users and view reports for all users.
 
 - add email reminders
 - add statement dates
-- add friendly forwarding - done
+- add coordinators
+- add ajax totals to time entry
 
-### Display: 
+
+### Display:
 
 
 #### Not Finished
@@ -31,12 +33,12 @@ Admin users can add users and view reports for all users.
 
 ### reporting:
 
-- reports by user, and with start and end dates can be run. 
-- Reports have a printable view. 
+- reports by user, and with start and end dates can be run.
+- Reports have a printable view.
 - time report summaries/dashboard completed
 
 
-#### Not finished: 
+#### Not finished:
 - reports show totals by account. taken out of printable view
 - reports show totals by program and account. taken out of printable view
 
@@ -46,7 +48,7 @@ Admin users can add users and view reports for all users.
 - Application is fully tested.  in progress
 
 
-### Model: 
+### Model:
 
 - Users can enter and edit their transactions.
 - Users cannot be deleted if they have transactions entered.
@@ -55,9 +57,10 @@ Admin users can add users and view reports for all users.
 
 #### Done
 
-- Basic authorization system is in place. 
+- Basic authorization system is in place.
 - Admins can enter and delete users.
 - Admins can enter additional accounts and programs
+- add friendly forwarding
 
 #### Not finished:
 

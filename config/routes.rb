@@ -1,38 +1,40 @@
 Rails.application.routes.draw do
-  
+
 
   get 'admin' => 'admin'
-  
+  get 'coordinator' => 'coordinator'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
+
   #get 'reports/:user_id', to: 'users#user_transactions'
-  
+
   resources :reports
 
   resources :users
 
   resources :transactions
-  
+
   resources :time_records
-  
+
   resources :accounts
   resources :programs
-  
+
   resources :pay_periods
-  
+
   resource :admin
-  
+  resource :coordinator
+
   resources :time_reports
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'transactions#index'
+  root 'time_records#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

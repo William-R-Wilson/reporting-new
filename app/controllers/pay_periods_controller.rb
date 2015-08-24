@@ -1,13 +1,13 @@
 
 
 class PayPeriodsController < ApplicationController
-  
-  before_action :check_if_admin, :authorize
-  
+
+  before_action :check_role, :authorize
+
   def index
     @periods = PayPeriod.all
   end
-  
+
   def show
     @period = PayPeriod.find(params[:id])
     @time_records = TimeRecord.where("date = ?", @period.date)
@@ -16,11 +16,11 @@ class PayPeriodsController < ApplicationController
     @users_not_reported = users_not_reported
   end
 
-  
+
   def new
     @period = PayPeriod.new
-  end 
-  
+  end
+
   def create
     @period = PayPeriod.new(period_params)
     respond_to do |format|
@@ -33,10 +33,10 @@ class PayPeriodsController < ApplicationController
       end
     end
   end
-  
+
   def edit
     @period = PayPeriod.find(params[:id])
-  end 
+  end
 
   def update
     @period = PayPeriod.find(params[:id])
@@ -49,22 +49,22 @@ class PayPeriodsController < ApplicationController
         format.json { render json: @period.errors, status: :unprocessable_entity }
       end
     end
-  end 
-  
+  end
+
   def destroy
-    @period = PayPeriod.find(params[:id])  
+    @period = PayPeriod.find(params[:id])
     @period.destroy
     respond_to do |format|
       format.html { redirect_to pay_periods_path, notice: 'Pay Period was successfully deleted.' }
       format.json { head :no_content }
     end
-  end 
-  
+  end
+
   private
-  
+
     def period_params
       params.require(:pay_period).permit(:id, :date)
-    end 
+    end
 
     def not_reported
       arr = []
@@ -83,7 +83,7 @@ class PayPeriodsController < ApplicationController
       arr = not_reported
       users = []
       arr.each do |e|
-        users.push(User.find_by(id: e)) 
+        users.push(User.find_by(id: e))
       end
       return users
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823011135) do
+ActiveRecord::Schema.define(version: 20150824185759) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150823011135) do
     t.string   "splits"
     t.string   "remember_digest"
     t.decimal  "percent_time"
+    t.boolean  "coordinator",     default: false
   end
 
 end

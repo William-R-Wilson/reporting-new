@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-  
+
   <fieldset>
   <legend>Enter User Details</legend>
-  
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %> <em>must have 8 characters minimum
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br>
@@ -33,14 +33,16 @@
   <div class="field">
     <%= f.label :splits %><br>
     <%= f.text_field :splits %>
-    Programs: 
+    Programs:
   <% @programs.each do |program| %>
     <%= program.name + ", " %>
   <% end %>
   </div>
   <div class = "field">
     <%= f.label :admin %><br>
-    <%= f.check_box :admin, default: false %>
+    <%= f.check_box :admin, default: false %><br>
+    <%= f.label :coordinator %><br>
+    <%= f.check_box :coordinator, default: false %>
   </div>
 
   <div class="actions">

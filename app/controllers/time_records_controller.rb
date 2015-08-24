@@ -1,31 +1,34 @@
 class TimeRecordsController < ApplicationController
-  
+
   before_action :authorize
-  
+  respond_to :html, :js
+
   def index
     if User.find_by(id: session[:user_id]).admin?
       @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(:date)
+    elsif User.find_by(id: session[:user_id]).coordinator?
+        @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(:date)
     else
-      @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date) 
+      @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date)
     end
-    
-  end 
+  end
 
   def show
     @timerecord = TimeRecord.find(params[:id])
-  end  
-  
-  def new 
+  end
+
+  def new
     @timerecord = TimeRecord.new
     @user_name = current_user.name
     @pay_periods = PayPeriod.pluck(:date)
   end
-  
+
+
   def edit
     @timerecord = TimeRecord.find(params[:id])
     @pay_periods = PayPeriod.pluck(:date)
-  end  
-  
+  end
+
   def create
     @timerecord = current_user.time_records.create(timerecord_params)
     respond_to do |format|
@@ -38,7 +41,7 @@ class TimeRecordsController < ApplicationController
       end
     end
   end
-  
+
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
@@ -53,9 +56,9 @@ class TimeRecordsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
-    @timerecord = TimeRecord.find(params[:id])  
+    @timerecord = TimeRecord.find(params[:id])
     @timerecord.destroy
     respond_to do |format|
       format.html { redirect_to time_records_url, notice: 'Time Record was successfully deleted.' }
@@ -64,8 +67,9 @@ class TimeRecordsController < ApplicationController
   end
 
   private
-  
+
     def timerecord_params
       params.require(:time_record).permit(:user_id, :hours, :vacation, :sick, :date)
     end
+
 end

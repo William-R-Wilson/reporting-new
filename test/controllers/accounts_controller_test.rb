@@ -1,25 +1,26 @@
 require 'test_helper'
 
 class AccountsControllerTest < ActionController::TestCase
-  
+
   def setup
-    @user = users(:two)
+    @user = users(:one)
     login_as(@user)
+    @account = accounts(:one)
   end
-  
+
   test "should get new" do
     get :new
     assert_response :success
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    post :create, account: { name: "name" }
+    assert_redirected_to accounts_path
   end
 
   test "should get destroy" do
-    get :destroy
-    assert_response :success
+    delete :destroy, id: @account
+    assert_redirected_to accounts_path
   end
 
   test "should get index" do

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  
-  skip_before_action :authorize 
-  
+
+  skip_before_action :authorize
+
   def new
   end
 
@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       #session[:user_id] = user.id
       log_in(user)
-      remember user 
-      redirect_back_or transactions_path
+      remember user
+      redirect_back_or time_records_path
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to login_url, notice: "Logged out"
   end
-  
-  
+
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825004203) do
+ActiveRecord::Schema.define(version: 20150825010033) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150825004203) do
     t.decimal  "accrued_vacation", precision: 6, scale: 2
     t.decimal  "accrued_sick",     precision: 6, scale: 2
     t.date     "start_date"
+    t.boolean  "inactive",                                 default: false
   end
 
 end

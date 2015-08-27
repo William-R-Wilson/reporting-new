@@ -5,11 +5,11 @@ class TimeRecordsController < ApplicationController
 
   def index
     if User.find_by(id: session[:user_id]).admin?
-      @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(:date)
+      @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(date: :desc)
     elsif User.find_by(id: session[:user_id]).coordinator?
-        @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(:date)
+        @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(date: :desc)
     else
-      @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date)
+      @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(date: :desc)
     end
   end
 

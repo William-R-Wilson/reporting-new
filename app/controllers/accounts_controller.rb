@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :check_if_admin, :authorize
-  
+
   def new
     @account = Account.new
   end
@@ -45,11 +45,12 @@ class AccountsController < ApplicationController
   end
 
   def index
-    @accounts = Account.all
+    accounts_sort = Account.all
+    @accounts = accounts_sort.order(:name)
   end
-  
-  private 
-  
+
+  private
+
     def account_params
       params.require(:account).permit(:name, :id)
     end

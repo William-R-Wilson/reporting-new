@@ -18,7 +18,7 @@
         <td><%= @timerecord.sick %></td>
         <td><%= @timerecord.hours+@timerecord.sick+@timerecord.vacation %></td>
         <td><%= link_to 'Edit', edit_time_record_path(@timerecord), class: 'row_button' %></td>
-        <td><%= link_to 'Delete', @timerecord, method: :delete, data: { confirm: 'Are you sure?' }, 
+        <td><%= link_to 'Delete', @timerecord, method: :delete, data: { confirm: 'Are you sure?' },
         class: 'row_button' %></td>
       </tr>
     </tbody>

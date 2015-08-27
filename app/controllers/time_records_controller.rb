@@ -15,6 +15,10 @@ class TimeRecordsController < ApplicationController
 
   def show
     @timerecord = TimeRecord.find(params[:id])
+    @user_name = current_user.name
+    #@vacation = current_user.vacation
+    #@sick = current_user.sick
+    #@start_date = current_user.start_date
   end
 
   def new

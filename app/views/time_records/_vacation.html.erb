@@ -1,0 +1,30 @@
+<h1>Vacation: </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Hours worked</th>
+      <th>Vacation Taken</th>
+      <th>Sick Taken</th>
+      <th>Total this Period</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @timerecords.each do |t| %>
+    <tr>
+      <td><%= t.date %></td>
+      <td><%= t.user.name %></td>
+      <td><%= t.hours %></td>
+      <td><%= t.vacation %></td>
+      <td><%= t.sick %></td>
+      <td><%= t.hours+t.sick+t.vacation %></td>
+      <td><%= link_to 'Edit', edit_time_record_path(t), class: 'row_button' %></td>
+      <td><%= link_to 'Delete', t, method: :delete, data: { confirm: 'Are you sure?' },
+      class: 'row_button' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+You started work on <%= @start_date %>

@@ -1,27 +1,28 @@
 class TransactionsController < ApplicationController
   #before_filter :accounts_and_programs  #in application_controller
-  
+
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  
-  
+
+
   before_filter :common_variables
 
   # GET /transactions
   # GET /transactions.json
-  
+
   def common_variables
     if User.find_by(id: session[:user_id]).admin?
       @transactions = Transaction.all.paginate(:page => params[:page]).order(:date)
     else
-      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date) 
+      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date)
     end
     @all_amounts = @transactions.pluck(:amount)
     @total = @all_amounts.sum  #this only sums what's on the page.  might not be needed on index view?
     @programs = Program.all.map { |program, id| [program.name, program.id] }
-    @accounts = Account.all.map { |account, id| [account.name, account.id] }
+    sort_accounts = Account.all.map { |account, id| [account.name, account.id] }
+    @accounts = sort_accounts.sort
   end
-  
+
   def index
 
   end
@@ -80,7 +81,7 @@ class TransactionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction

@@ -5,9 +5,9 @@
         <th>Date</th>
         <th>Name</th>
         <th>Hours worked</th>
-        <th>Vacation</th>
-        <th>Sick</th>
-        <th>Total</th>
+        <th>Vacation Taken</th>
+        <th>Sick Taken</th>
+        <th>Total this Period</th>
       </tr>
     </thead>
     <tbody>
@@ -20,9 +20,10 @@
         <td><%= t.sick %></td>
         <td><%= t.hours+t.sick+t.vacation %></td>
         <td><%= link_to 'Edit', edit_time_record_path(t), class: 'row_button' %></td>
-        <td><%= link_to 'Delete', t, method: :delete, data: { confirm: 'Are you sure?' }, 
+        <td><%= link_to 'Delete', t, method: :delete, data: { confirm: 'Are you sure?' },
         class: 'row_button' %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+<div class = "paginate"><%= will_paginate @timerecords %></div>

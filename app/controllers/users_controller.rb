@@ -8,22 +8,26 @@ class UsersController < ApplicationController
   def index
     @users = User.order(:name)
     @programs = Program.all
+    @users.each do |user|
+      user.calculate_vacation
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    #@vacation = @user.calculate_vacation
   end
 
   # GET /users/new
   def new
     @user = User.new
-    @programs = Program.all
+    #@programs = Program.all
   end
 
   # GET /users/1/edit
   def edit
-    @programs = Program.all
+    #@programs = Program.all
   end
 
   def user_transactions
@@ -84,10 +88,11 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
       @programs = Program.all
+      @user.calculate_vacation
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :splits, :percent_time, :coordinator)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :splits, :percent_time, :coordinator, :accrued_vacation, :accrued_sick, :start_date)
     end
 end

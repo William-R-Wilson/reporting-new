@@ -27,9 +27,10 @@ gem 'will_paginate', '~> 3.0.6'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
 group :development do
-  gem 'spring', '1.3.6'        
+  gem 'spring', '1.3.6'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'  
+  gem 'sqlite3'
+  gem 'pry-rails'
 end
 
 
@@ -39,7 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 
 
-group :test do 
+group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace', '0.1.3'
   gem 'guard-minitest', '2.3.1'
@@ -60,4 +61,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

@@ -8,6 +8,8 @@
       <th>Email</th>
       <th>Percent Time</th>
       <th>Splits</th>
+      <th>Start Date</th>
+      <th>Vacation</th>
       <th>Admin?</th>
       <th>Coordinator?</th>
     </tr>
@@ -20,8 +22,11 @@
         <td><%= user.email %></td>
         <td><%= user.percent_time %></td>
         <td><%= user.splits %></td>
+        <td><%= user.start_date %></td>
+        <td><%= user.accrued_vacation %></td>
         <td><% if user.admin? %>YES<% end %></td>
         <td><% if user.coordinator? %>YES<% end %></td>
+        <td><%= link_to 'Show', user_path(user), class: 'row_button' %></td>
         <td><%= link_to 'Edit', edit_user_path(user), class: 'row_button' %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></td>
       </tr>

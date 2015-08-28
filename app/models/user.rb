@@ -1,6 +1,10 @@
+
+
 class User < ActiveRecord::Base
+  require 'date'
   before_save { self.email = email.downcase }
   after_initialize :init
+  #before_save :calculate_vacation
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -37,7 +41,23 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  def calculate_vacation
+    today = Date.today
+    start = self.start_date
+    #binding.pry
+    num_months = calculate_months(today, start)
+    self.accrued_vacation = num_months*16
+  end
+
+
   private
+
+    def calculate_months(today, pastDate)
+      (today.year * 12 + today.month) - (pastDate.year * 12 + pastDate.month)
+    end
+
+
+
     def ensure_an_admin_remains
       if User.count.zero?
         raise "Can't delete last user"
@@ -46,6 +66,7 @@ class User < ActiveRecord::Base
 
     def init
       self.percent_time ||= 1
+      #self.accrued_vacation ||= 0
     end
 
 

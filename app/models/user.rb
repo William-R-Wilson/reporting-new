@@ -41,23 +41,7 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
-  def calculate_vacation
-    today = Date.today
-    start = self.start_date
-    num_months = calculate_months(today, start)
-    timerecords = TimeRecord.where("user_id = ?", self.id)
-    vacation_used = timerecords.sum(:vacation)
-    self.accrued_vacation = self.starting_vacation + (num_months*16) - vacation_used
-  end
-
-
   private
-
-    def calculate_months(today, pastDate)
-      (today.year * 12 + today.month) - (pastDate.year * 12 + pastDate.month)
-    end
-
-
 
     def ensure_an_admin_remains
       if User.count.zero?

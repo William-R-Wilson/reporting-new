@@ -13,7 +13,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @vacation = @user.calculate_vacation
+    today = Date.today
+    @start = @user.start_date
+    @num_months = calculate_months(today, @start)
+    timerecords = TimeRecord.where("user_id = ?", @user.id)
+    @vacation_used = timerecords.sum(:vacation)
+    @sick_used = timerecords.sum(:sick)
+    @accrued_vacation = @user.starting_vacation + (@num_months*(16 * @user.percent_time)) - @vacation_used
+    @accrued_sick = @user.starting_sick + (@num_months * (8* @user.percent_time)) - @sick_used
   end
 
   # GET /users/new
@@ -92,4 +99,10 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :splits, :percent_time, :coordinator, :accrued_vacation, :accrued_sick, :start_date, :starting_vacation, :starting_sick)
     end
+
+    def calculate_months(today, pastDate)
+      (today.year * 12 + today.month) - (pastDate.year * 12 + pastDate.month)
+    end
+
+
 end

@@ -3,15 +3,28 @@
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
-</p>
-
-<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<p>
   <strong>Vacation</strong>
-  <%= @user.accrued_vacation %>
-</p>
+  <p>Vacation and sick accrual calculations start on <%= @start %>, <%= @num_months %> months ago.
+    Vacation accrues at <%= 16 * @user.percent_time %> hours per month.</p>
+
+  <table>
+    <tr><td>Starting Vacation (as of <%= @start %>):</td><td><%= @user.starting_vacation %></td></tr>
+    <tr><td>Subtract vacation reported used:</td><td><%= @vacation_used %></td></tr>
+    <tr><td>Add vacation accrued:</td><td><%= @num_months * (16 * @user.percent_time) %></td></tr>
+    <tr><td>Total Accrued:</td><td><%= @accrued_vacation %></td></tr>
+  </table>
+
+  <strong>Sick</strong>
+  <p>Sick accrues at <%= 8 * @user.percent_time %> hours per month.</p>
+  <table>
+    <tr><td>Starting sick (as of <%= @start %>):</td><td><%= @user.starting_sick %></td></tr>
+    <tr><td>Subtract sick reported used:</td><td><%= @sick_used %></td></tr>
+    <tr><td>Add sick accrued:</td><td><%= @num_months * (8 * @user.percent_time) %></td></tr>
+    <tr><td>Total Accrued:</td><td><%= @accrued_sick %></td></tr>
+  </table>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -44,9 +44,10 @@ class User < ActiveRecord::Base
   def calculate_vacation
     today = Date.today
     start = self.start_date
-    #binding.pry
     num_months = calculate_months(today, start)
-    self.accrued_vacation = num_months*16
+    timerecords = TimeRecord.where("user_id = ?", self.id)
+    vacation_used = timerecords.sum(:vacation)
+    self.accrued_vacation = self.starting_vacation + (num_months*16) - vacation_used
   end
 
 

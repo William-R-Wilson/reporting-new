@@ -14,7 +14,7 @@
     <tr><td>Starting Vacation (as of <%= @start %>):</td><td><%= @user.starting_vacation %></td></tr>
     <tr><td>Subtract vacation reported used:</td><td><%= @vacation_used %></td></tr>
     <tr><td>Add vacation accrued:</td><td><%= @num_months * (16 * @user.percent_time) %></td></tr>
-    <tr><td>Total Accrued:</td><td><%= @accrued_vacation %></td></tr>
+    <tr><td>Total vacation as of <%= Date.today %>:</td><td><%= @accrued_vacation %></td></tr>
   </table>
 
   <strong>Sick</strong>
@@ -23,7 +23,7 @@
     <tr><td>Starting sick (as of <%= @start %>):</td><td><%= @user.starting_sick %></td></tr>
     <tr><td>Subtract sick reported used:</td><td><%= @sick_used %></td></tr>
     <tr><td>Add sick accrued:</td><td><%= @num_months * (8 * @user.percent_time) %></td></tr>
-    <tr><td>Total Accrued:</td><td><%= @accrued_sick %></td></tr>
+    <tr><td>Total sick as of <%= Date.today %>:</td><td><%= @accrued_sick %></td></tr>
   </table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

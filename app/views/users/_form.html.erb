@@ -17,10 +17,6 @@
     <%= f.label :inactive %><br>
     <%= f.check_box :inactive, default: false %>Make employee inactive
   </div>
-  <div class = "field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %><br>
-  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -43,15 +39,20 @@
     Programs:
   <% @programs.each do |program| %>
     <%= program.name + ", " %>
-  <% end %>
+  <% end %><br>
+  Enter in this format: "program, decimal", eg:  Admin, .5, Development, .5
+  </div>
+  <div class = "field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %> Date to begin accruing sick and vacation
   </div>
   <div>
     <%= f.label :starting_sick %><br>
-    <%= f.number_field :starting_sick %>
+    <%= f.number_field :starting_sick %> Sick accrued to date selected above
   </div>
   <div>
     <%= f.label :starting_vacation %><br>
-    <%= f.number_field :starting_vacation %>
+    <%= f.number_field :starting_vacation %> Vacation accrued to date selected above
   </div>
   <div class = "field">
     <%= f.label :admin %><br>

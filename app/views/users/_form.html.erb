@@ -48,11 +48,11 @@
   </div>
   <div>
     <%= f.label :starting_sick %><br>
-    <%= f.number_field :starting_sick %> Sick accrued to date selected above
+    <%= f.number_field :starting_sick, options = {step: 0.25} %> Sick accrued to date selected above
   </div>
   <div>
     <%= f.label :starting_vacation %><br>
-    <%= f.number_field :starting_vacation %> Vacation accrued to date selected above
+    <%= f.number_field :starting_vacation, options = {step: 0.25} %> Vacation accrued to date selected above
   </div>
   <div class = "field">
     <%= f.label :admin %><br>

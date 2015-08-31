@@ -1,6 +1,7 @@
 class TimeRecordsController < ApplicationController
 
   before_action :authorize
+
   respond_to :html, :js
 
   def index
@@ -16,11 +17,6 @@ class TimeRecordsController < ApplicationController
   def show
     @timerecord = TimeRecord.find(params[:id])
     @user_name = current_user.name
-
-    #not sure I want to do it this way yet since we need the ability to see other users
-    #@vacation = current_user.vacation
-    #@sick = current_user.sick
-    #@start_date = current_user.start_date
   end
 
   def new

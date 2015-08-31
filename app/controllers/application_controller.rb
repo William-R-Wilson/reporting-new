@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
 
-
-
   protected
 
     def authorize
@@ -19,29 +17,19 @@ class ApplicationController < ActionController::Base
 
     def check_role
       unless User.find_by(id: session[:user_id]).admin? || User.find_by(id: session[:user_id]).coordinator?
-        redirect_to time_records_url
+        redirect_to time_records_url, notice: "You are not authorized for this action"
       end
     end
 
-
-
     def check_if_admin
       unless User.find_by(id: session[:user_id]).admin?
-        #notice: "You are not authorized"
-        redirect_to time_records_url
+        redirect_to time_records_url, notice: "You are not authorized for this action"
       end
     end
 
     def check_if_coordinator
       unless User.find_by(id: session[:user_id]).coordinator?
-        redirect_to time_records_url
+        redirect_to time_records_url, notice: "You are not authorized for this action"
       end
     end
-
-
-  #def logged_in?
-  #  session[:user_id]
-  #end
-
-
 end

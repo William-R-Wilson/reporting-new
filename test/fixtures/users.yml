@@ -1,13 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: "Spock"
   email: "Spock@vulcan.com"
   password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: true
 
 two:
+  id: 2
   name: "James T. Kirk"
   email: "james@t.kirk.com"
   password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: false
+  percent_time: 1
+  starting_sick: 10
+  starting_vacation: 10
+  start_date: "2014-01-28"
+  splits: "Admin, 1"
+
+three:
+  id: 3
+  name: "McCoy"
+  email: "mcccoy@mccoy.com"
+  password_digest: <%= BCrypt::Password.create('secretest') %>
+  admin: false
+  coordinator: true

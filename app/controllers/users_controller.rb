@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_coordinator, only: [:index, :show]
+  before_action :check_role, only: [:index, :show]
   before_action :check_if_admin, only: [:edit, :new, :create, :update]
 
 

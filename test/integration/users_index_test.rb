@@ -1,12 +1,13 @@
 require 'test_helper'
 
 class UsersIndexTest < ActionDispatch::IntegrationTest
-  
+
+=begin
   def setup
     @admin = users(:one)
     @non_admin = users(:two)
   end
-  
+
   test "index as admin including delete link" do
     login_as(@admin)
     get users_path
@@ -15,6 +16,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
       delete user_path(@non_admin)
     end
   end
-    
-    
+=end
+
 end

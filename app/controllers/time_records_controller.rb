@@ -71,7 +71,7 @@ class TimeRecordsController < ApplicationController
   private
 
     def timerecord_params
-      params.require(:time_record).permit(:user_id, :hours, :vacation, :sick, :date)
+      params.require(:time_record).permit(:user_id, :hours, :vacation, :sick, :date, :holiday, :bereavement, :jury_duty, :inclement_weather)
     end
 
 end

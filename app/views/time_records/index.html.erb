@@ -7,6 +7,10 @@
         <th>Hours worked</th>
         <th>Vacation Taken</th>
         <th>Sick Taken</th>
+        <th>Holiday</th>
+        <th>Bereavement</th>
+        <th>Inclement Weather</th>
+        <th>Jury Duty</th>
         <th>Total this Period</th>
       </tr>
     </thead>
@@ -18,7 +22,11 @@
         <td><%= t.hours %></td>
         <td><%= t.vacation %></td>
         <td><%= t.sick %></td>
-        <td><%= t.hours+t.sick+t.vacation %></td>
+        <td><%= t.holiday %></td>
+        <td><%= t.bereavement %></td>
+        <td><%= t.inclement_weather %></td>
+        <td><%= t.jury_duty %></td>
+        <td><%= t.hours+t.sick+t.vacation+(t.holiday || 0)+(t.bereavement || 0)+(t.inclement_weather || 0)+(t.jury_duty || 0) %></td>
         <td><%= link_to 'Edit', edit_time_record_path(t), class: 'row_button' %></td>
         <td><%= link_to 'Delete', t, method: :delete, data: { confirm: 'Are you sure?' },
         class: 'row_button' %></td>

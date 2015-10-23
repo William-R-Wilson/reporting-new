@@ -6,6 +6,10 @@
         <th>Hours worked</th>
         <th>Vacation</th>
         <th>Sick</th>
+        <th>Holiday</th>
+        <th>Bereavement</th>
+        <th>Inclement Weather</th>
+        <th>Jury Duty</th>
         <th>Total</th>
       </tr>
     </thead>
@@ -16,7 +20,11 @@
         <td><%= @timerecord.hours %></td>
         <td><%= @timerecord.vacation %></td>
         <td><%= @timerecord.sick %></td>
-        <td><%= @timerecord.hours+@timerecord.sick+@timerecord.vacation %></td>
+        <td><%= @timerecord.holiday %></td>
+        <td><%= @timerecord.bereavement %></td>
+        <td><%= @timerecord.inclement_weather %></td>
+        <td><%= @timerecord.jury_duty %></td>
+        <td><%= @timerecord.hours+@timerecord.sick+@timerecord.vacation+@timerecord.holiday+@timerecord.bereavement+@timerecord.jury_duty+@timerecord.inclement_weather %></td>
         <td><%= link_to 'Edit', edit_time_record_path(@timerecord), class: 'row_button' %></td>
         <td><%= link_to 'Delete', @timerecord, method: :delete, data: { confirm: 'Are you sure?' },
         class: 'row_button' %></td>

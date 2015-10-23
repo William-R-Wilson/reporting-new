@@ -8,6 +8,10 @@
         <th>Hours worked</th>
         <th>Vacation</th>
         <th>Sick</th>
+        <th>Holiday</th>
+        <th>Bereavement</th>
+        <th>Jury Duty</th>
+        <th>Inclement Weather</th>
         <th>Total</th>
       </tr>
     </thead>
@@ -18,7 +22,11 @@
       <td><%= t.hours %></td>
       <td><%= t.vacation %></td>
       <td><%= t.sick %></td>
-      <td><%= t.hours + t.vacation + t.sick %></td>
+      <td><%= t.holiday %></td>
+      <td><%= t.bereavement %></td>
+      <td><%= t.jury_duty %></td>
+      <td><%= t.inclement_weather %></td>
+      <td><%= t.hours + t.vacation + t.sick + t.holiday + t.bereavement + t.jury_duty + t.inclement_weather %></td>
     </tr>
   <% end %>
     </tbody>
@@ -37,6 +45,10 @@
                 <th>Hours worked</th>
                 <th>Vacation</th>
                 <th>Sick</th>
+                <th>Holiday</th>
+                <th>Bereavement</th>
+                <th>Inclement_weather</th>
+                <th>Jury Duty</th>
               </tr>
             </thead>
             <tbody>
@@ -46,6 +58,10 @@
                   <td><%= (t.hours.to_f * allocation[1]).round(2) %></td>
                   <td><%= (t.vacation.to_f * allocation[1]).round(2) %></td>
                   <td><%= (t.sick.to_f * allocation[1]).round(2) %></td>
+                  <td><%= (t.holiday.to_f * allocation[1]).round(2) %></td>
+                  <td><%= (t.bereavement.to_f * allocation[1]).round(2) %></td>
+                  <td><%= (t.inclement_weather.to_f * allocation[1]).round(2) %></td>
+                  <td><%= (t.jury_duty.to_f * allocation[1]).round(2) %></td>
                 </tr>
               <% end %>
             </tbody>

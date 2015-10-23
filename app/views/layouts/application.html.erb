@@ -34,9 +34,10 @@
       <li><%= link_to "Enter Time", new_time_record_path, class: "nav_button", title: "Enter your hours worked" %></li>
       <% if is_admin? %>
         <li><%= link_to "Admin menu", admin_path, class: "nav_button", title: "Admin options" %></li>
-      <% end %>
-      <% if is_coordinator? %>
+      <% elsif is_coordinator? %>
         <li><%= link_to "Coordinator menu", coordinator_path, class: "nav_button", title: "Coordinator Options" %></li>
+      <% else %>
+        <li><%= link_to "Other options", user_options_path, class: "nav_button", title: "Other Options" %></li>
       <% end %>
     <% end %>
   </ul>

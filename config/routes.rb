@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin'
   get 'coordinator' => 'coordinator'
+  get 'user_options' => 'user_options'
+  get 'edit_password' => 'user_options#edit_password'
 
   controller :sessions do
     get 'login' => :new

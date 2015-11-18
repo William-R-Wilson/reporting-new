@@ -14,12 +14,16 @@
     </div>
   <% end %>
 <div class = "enter_time">
-<%= form_for(@timerecord) do |f| %> 
+<%= form_for(@timerecord) do |f| %>
 
      <div><%= f.label :date %></div><%= f.select(:date, options_for_select(@pay_periods.sort { |x,y| y <=> x }), {}, {class: "selector"}) %>
-     <div><%= f.label :hours %></div><%= f.text_field :hours, value: @timerecord.hours %>
-     <div><%= f.label :vacation %></div><%= f.text_field :vacation, value: @timerecord.vacation %>
-     <div><%= f.label :sick %></div><%= f.text_field :sick, value: @timerecord.sick %>
+     <div><%= f.label :hours %></div><%= f.number_field :hours, value: @timerecord.hours %>
+     <div><%= f.label :vacation %></div><%= f.number_field :vacation, value: @timerecord.vacation %>
+     <div><%= f.label :sick %></div><%= f.number_field :sick, value: @timerecord.sick %>
+     <div><%= f.label :holiday %></div><%= f.number_field :holiday, value: @timerecord.holiday %>
+     <div><%= f.label :bereavement %></div><%= f.number_field :bereavement, value: @timerecord.bereavement %>
+     <div><%= f.label :inclement_weather %></div><%= f.number_field :inclement_weather, value: @timerecord.inclement_weather %>
+     <div><%= f.label :jury_duty %></div><%= f.number_field :jury_duty, value: @timerecord.jury_duty %>
 
   <div class="actions">
     <%= f.submit "Update", class: "submit_button" %>

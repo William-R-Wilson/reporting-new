@@ -12,6 +12,7 @@
     </div>
   <% end %>
 <div class = "enter_time">
+
 <%= form_for(@timerecord) do |f| %>
 
      <div><%= f.label :date %></div><%= f.select(:date, options_for_select(@pay_periods.sort { |x,y| y <=> x }), {}, {:class => "selector"}) %>
@@ -22,7 +23,7 @@
      <div><%= f.label :bereavement %></div><%= f.number_field :bereavement, value: "0" %>
      <div><%= f.label :inclement_weather %></div><%= f.number_field :inclement_weather, value: "0" %>
      <div><%= f.label :jury_duty %></div><%= f.number_field :jury_duty, value: "0" %>
-     <div id="sum"></div>
+
   <div class="actions">
     <%= f.submit "Submit", class: "submit_button" %>
   </div>

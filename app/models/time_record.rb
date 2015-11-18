@@ -4,6 +4,7 @@ class TimeRecord < ActiveRecord::Base
   after_initialize :default_values
   validates_presence_of :user_id
   validates_numericality_of :hours, :sick, :vacation
+  before_save :total_hours
 
   self.per_page = 12
 
@@ -17,8 +18,8 @@ class TimeRecord < ActiveRecord::Base
     self.inclement_weather ||= 0
   end
 
-  def total
-    self.hours_total = hours + sick + vacation
+  def total_hours
+    hours_total = hours + sick + vacation
   end
 
 end

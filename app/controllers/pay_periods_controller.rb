@@ -5,7 +5,7 @@ class PayPeriodsController < ApplicationController
   before_action :check_role, :authorize
 
   def index
-    @periods = PayPeriod.all
+    @periods = PayPeriod.all.order(date: :desc)
   end
 
   def show

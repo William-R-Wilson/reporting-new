@@ -13,12 +13,13 @@ After initial login, admins can send an email with the link and users can comple
 
 Admin users can add users and view reports for all users.  
 
+Coordinators can view all users time reports
+
 
 # To Do:
 
 - add email reminders
 - add statement dates
-- add coordinators
 - add ajax totals to time entry
 
 

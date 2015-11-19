@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :change_password, :update_password]
   before_action :check_role, only: [:index]
   before_action :check_if_admin, only: [:edit, :new, :create, :update]
 
@@ -39,8 +39,6 @@ class UsersController < ApplicationController
     @user = params[:user]
     @transactions = @user.transactions
   end
-
-
 
   # POST /users
   # POST /users.json

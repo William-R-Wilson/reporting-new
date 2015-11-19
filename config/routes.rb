@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'static/about'
+
   get 'admin' => 'admin'
   get 'coordinator' => 'coordinator'
   get 'user_options' => 'user_options'

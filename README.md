@@ -21,6 +21,7 @@ Coordinators can view all users time reports
 - add email reminders
 - add statement dates
 - add ajax totals to time entry
+- add About page with instructions
 
 
 ### Display:
@@ -52,7 +53,7 @@ Coordinators can view all users time reports
 ### Model:
 
 - Users can enter and edit their transactions.
-- Users cannot be deleted if they have transactions entered.
+- Users cannot be deleted if they have transactions entered.  Need to add an inactive status to hide these users.
 
 ### Authorization:
 
@@ -72,3 +73,4 @@ Coordinators can view all users time reports
 ### Future:  
 
 - Uploading images of receipts with each transaction
+- email reminders

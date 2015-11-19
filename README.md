@@ -73,4 +73,4 @@ Coordinators can view all users time reports
 ### Future:  
 
 - Uploading images of receipts with each transaction
-- email reminders
+- email reminders to report

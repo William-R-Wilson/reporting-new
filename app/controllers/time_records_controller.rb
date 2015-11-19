@@ -1,16 +1,16 @@
 class TimeRecordsController < ApplicationController
-
+  helper_method :sort_column, :sort_direction
   before_action :authorize
 
   respond_to :html, :js
 
   def index
     if User.find_by(id: session[:user_id]).admin?
-      @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(date: :desc)
+      @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(sort_column + " " + sort_direction)
     elsif User.find_by(id: session[:user_id]).coordinator?
-        @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(date: :desc)
+        @timerecords = TimeRecord.all.paginate(:page => params[:page]).order(sort_column + " " + sort_direction)
     else
-      @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(date: :desc)
+      @timerecords = TimeRecord.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(sort_column + " " + sort_direction)
     end
   end
 
@@ -72,6 +72,14 @@ class TimeRecordsController < ApplicationController
 
     def timerecord_params
       params.require(:time_record).permit(:user_id, :hours, :vacation, :sick, :date, :holiday, :bereavement, :jury_duty, :inclement_weather)
+    end
+
+    def sort_column
+      TimeRecord.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
 end

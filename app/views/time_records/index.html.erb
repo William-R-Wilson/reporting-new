@@ -18,7 +18,7 @@
       <% @timerecords.each do |t| %>
       <tr>
         <td><%= t.date %></td>
-        <td><%= t.user.name %></td>
+        <td><%= t.user.last_name + "," + t.user.first_name %></td>
         <td><%= t.hours %></td>
         <td><%= t.vacation %></td>
         <td><%= t.sick %></td>

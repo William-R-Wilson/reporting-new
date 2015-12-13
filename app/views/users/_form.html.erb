@@ -14,12 +14,16 @@
   <fieldset>
   <legend>Enter Employee Details</legend>
   <div class = "field">
-    <%= f.label :inactive %><br>
+    <%= f.label :inactive %><br />
     <%= f.check_box :inactive, default: false %>Make employee inactive
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class = "field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
   </div>
   <div class="field">
     <%= f.label :email %><br>

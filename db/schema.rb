@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023011302) do
+ActiveRecord::Schema.define(version: 20151213142611) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20151023011302) do
     t.string   "what"
     t.string   "where"
     t.string   "why"
-    t.string   "string"
     t.decimal  "amount",     precision: 6, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,7 +67,7 @@ ActiveRecord::Schema.define(version: 20151023011302) do
   add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
@@ -84,6 +83,7 @@ ActiveRecord::Schema.define(version: 20151023011302) do
     t.boolean  "inactive",                                  default: false
     t.decimal  "starting_sick"
     t.decimal  "starting_vacation"
+    t.string   "last_name"
   end
 
 end

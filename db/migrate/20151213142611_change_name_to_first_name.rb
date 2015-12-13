@@ -1,3 +1,3 @@
 class ChangeNameToFirstName < ActiveRecord::Migration
-  rename_column :users, :firstname, :first_name
+  rename_column :users, :name, :first_name
 end

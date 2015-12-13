@@ -5,14 +5,14 @@
   <% if User.find_by(id: session[:user_id]).admin? %>
     <%= select_tag(:user_id, options_for_select(@users_to_select), {class: "selector"}) %><br>
   <% else %>
-    <h3><%= "Welcome #{@user.name}!" %></h3><br>
+    <h3><%= "Welcome #{@user.first_name}!" %></h3><br>
     <%= hidden_field_tag "user_id", @user.id %>
   <% end %>
 </div>
 
 <div class = "form">Start Date: </div>
   <%= select_date Date.today.prev_month, prefix: :start_date, with_css_classes: true %><br>
-<div class = "form">End Date: </div> 
+<div class = "form">End Date: </div>
   <%= select_date Date.today, prefix: :end_date, with_css_classes: true %><br>
 
 <div class="form">
@@ -20,5 +20,3 @@
 </div>
 <% end %>
 </div>
-
-

@@ -35,7 +35,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @user_name = current_user.name
+    @user_name = current_user.first_name
   end
 
   # GET /transactions/1/edit

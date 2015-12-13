@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:last_name)
+    @users = User.order(:last_name).order(:first_name)
     @programs = Program.all
   end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       respond_to do |format|
         if @user.save
-          format.html { redirect_to users_path, notice: "User #{@user.name} was successfully created." }
+          format.html { redirect_to users_path, notice: "User #{@user.first_name} #{@user.last_name} was successfully created." }
           format.json { render :show, status: :created, location: @user }
         else
           format.html { redirect_to users_path, notice: "User was not created" }
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
+        format.html { redirect_to users_url, notice: "User #{@user.first_name} #{@user.last_name} was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -97,7 +97,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :splits, :percent_time, :coordinator, :accrued_vacation, :accrued_sick, :start_date, :starting_vacation, :starting_sick)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin, :splits, :percent_time, :coordinator, :accrued_vacation, :accrued_sick, :start_date, :starting_vacation, :starting_sick)
     end
 
     def calculate_months(today, pastDate)

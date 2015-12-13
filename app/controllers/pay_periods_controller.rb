@@ -10,8 +10,10 @@ class PayPeriodsController < ApplicationController
 
   def show
     @period = PayPeriod.find(params[:id])
-    @time_records = TimeRecord.where("date = ?", @period.date)
-    @users = User.all
+    #records = TimeRecord.where("date = ?", @period.date)
+    @time_records = TimeRecord.includes(:user).where("date = ?", @period.date).order("users.last_name ASC, first_name ASC")
+    u = User.all
+    @users = u.order(:last_name, :first_name)
     @not_reported = not_reported
     @users_not_reported = users_not_reported
   end

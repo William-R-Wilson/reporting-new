@@ -1,7 +1,7 @@
 
 
-<div class = "sub_head">Purchases made by <%= @user.name %> from <%= @start_date.strftime("%b")+ 
-                      " " + @start_date.day.to_s %> to <%= @end_date.strftime("%b") + 
+<div class = "sub_head">Purchases made by <%= @user.first_name + " " + @user.last_name%> from <%= @start_date.strftime("%b")+ 
+                      " " + @start_date.day.to_s %> to <%= @end_date.strftime("%b") +
                       " " + @end_date.day.to_s %></div>
 
 <table>

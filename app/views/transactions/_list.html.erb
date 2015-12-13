@@ -28,7 +28,7 @@
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.program.name %></td>
         <td><%= transaction.account.name %></td>
-        <td><%= transaction.user.name %></td>
+        <td><%= transaction.user.first_name + " " + transaction.user.last_name %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction), class: 'row_button' %></td>
         <td><%= link_to 'Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></td>
       </tr>

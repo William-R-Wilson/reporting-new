@@ -16,12 +16,12 @@ class TimeRecordsController < ApplicationController
 
   def show
     @timerecord = TimeRecord.find(params[:id])
-    @user_name = current_user.name
+    @user_name = current_user.first_name
   end
 
   def new
     @timerecord = TimeRecord.new
-    @user_name = current_user.name
+    @user_name = current_user.first_name
     @pay_periods = PayPeriod.pluck(:date)
   end
 
@@ -79,7 +79,7 @@ class TimeRecordsController < ApplicationController
     end
 
     def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
 
 end

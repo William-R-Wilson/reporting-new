@@ -18,7 +18,7 @@
     <tbody>
   <% @time_records.each do |t| %>
     <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
-      <td><%= t.user.name %></td>
+      <td><%= t.user.last_name + ", " + t.user.first_name %></td>
       <td><%= t.hours %></td>
       <td><%= t.vacation %></td>
       <td><%= t.sick %></td>
@@ -35,7 +35,7 @@
 
 <h2>Allocations By User</h2>
   <% @time_records.each do |t| %>
-    <h3><%= t.user.name %></h3>
+    <h3><%= t.user.last_name + ", " + t.user.first_name %></h3>
       <% users_split = convert_allocations(t.user.splits) %>
         <div id = "list_container">
           <table class = "allocations_table">
@@ -67,7 +67,7 @@
             </tbody>
           </table>
         </div>
-      <div><%= t.user.name %>'s splits:  <%= t.user.splits %></div>
+      <div><%= t.user.first_name %>'s splits:  <%= t.user.splits %></div>
   <% end %>
 
 
@@ -75,7 +75,7 @@
 <div>
 
     <% @users_not_reported.each do |u| %>
-      <h3><%= u.name %></h3>
+      <h3><%= u.last_name + ", " + u.first_name %></h3>
         <% users_split = convert_allocations(u.splits) %>
         <% percentage = u.percent_time * 80 %>
         <div id = "list_container">
@@ -96,7 +96,7 @@
             </tbody>
           </table>
         </div>
-      <div><%= u.name %>'s splits:  <%= u.splits %></div>
+      <div><%= u.first_name %>'s splits:  <%= u.splits %></div>
   <% end %>
 
 </div>

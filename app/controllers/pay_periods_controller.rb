@@ -87,7 +87,7 @@ class PayPeriodsController < ApplicationController
       arr.each do |e|
         users.push(User.find_by(id: e))
       end
-      return users
+      return users.sort_by { |x| [x.last_name, x.first_name] }
     end
 
 end

@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
   has_many :transactions
   has_many :time_records
   has_secure_password
-  #validates :password, presence: true, on: :create, length: { minimum: 8 }
-  #after_destroy :ensure_an_admin_remains
+  validates :password, presence: true, on: :create, length: { minimum: 8 }
+  after_destroy :ensure_an_admin_remains
   attr_accessor :remember_token
 
   def User.digest(string)
@@ -46,8 +46,8 @@ class User < ActiveRecord::Base
 
     def ensure_an_admin_remains
       if User.count.zero?
-        raise "Can't delete last user"
-      end
+        raise "Can't delete last user"  #only admins can delete from within the app
+      end                               #this does not protect against actions in the console
     end
 
     def init

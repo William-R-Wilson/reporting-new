@@ -45,8 +45,7 @@ class AccountsController < ApplicationController
   end
 
   def index
-    accounts_sort = Account.all
-    @accounts = accounts_sort.order(:name)
+    @accounts = Account.all.order(:name)
   end
 
   private

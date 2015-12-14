@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   before_action :check_if_admin, :authorize
-  
+
   def new
     @program = Program.new
   end
@@ -45,11 +45,11 @@ class ProgramsController < ApplicationController
   end
 
   def index
-    @programs = Program.all
+    @programs = Program.all.order(:name)
   end
-  
-  private 
-  
+
+  private
+
     def program_params
       params.require(:program).permit(:name, :id)
     end

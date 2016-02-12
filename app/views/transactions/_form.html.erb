@@ -1,4 +1,8 @@
 <meta name="viewport" content="width=device-width" />
+<div class = "heading">New transaction</div>
+
+<fieldset>
+<legend>Enter Transaction Details</legend>
 
   <% if @transaction.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +16,7 @@
     </div>
   <% end %>
 <div class = "enter_transactions">
-<%= form_for(@transaction) do |f| %> 
+<%= form_for(@transaction, remote: true) do |f| %>
 
      <li><div class = "form"><%= f.label :date %></div><%= f.date_select :date, with_css_classes: true %></li>
      <li><div><%= f.label :vendor, title: "Who did you buy it from?" %></div><%= f.text_field :vendor, class: "entry" %></li>
@@ -28,3 +32,4 @@
   </div>
 </div>
 <% end %>
+</fieldset>

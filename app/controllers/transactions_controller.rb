@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
 
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :authorize
+  respond_to :html, :js
 
 
   before_filter :common_variables
@@ -12,19 +13,15 @@ class TransactionsController < ApplicationController
 
   def common_variables
     if User.find_by(id: session[:user_id]).admin?
-      @transactions = Transaction.all.paginate(:page => params[:page]).order(:date)
+      @transactions = Transaction.all.paginate(:page => params[:page]).order(date: :desc)
     else
-      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(:date)
+      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id])).paginate(:page => params[:page]).order(date: :desc)
     end
     @all_amounts = @transactions.pluck(:amount)
     @total = @all_amounts.sum  #this only sums what's on the page.  might not be needed on index view?
     @programs = Program.all.map { |program, id| [program.name, program.id] }
     sort_accounts = Account.all.map { |account, id| [account.name, account.id] }
     @accounts = sort_accounts.sort
-  end
-
-  def index
-
   end
 
   # GET /transactions/1
@@ -49,6 +46,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
+        format.js {}
         format.json { redirect_to transactions_url, status: :created, location: @transaction }
       else
         format.html { render :new }

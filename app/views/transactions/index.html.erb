@@ -1,8 +1,13 @@
 <h1>Listing transactions</h1>
 
 
-<%= render "list" %>
+<div id = "transactions-list"><%= render "list" %></div>
+
+<% if logged_in? %>
+<div><%= link_to 'New Transaction', new_transaction_path,
+        remote: true, class: "nav_button", title: "Add a new credit card transaction" %></div>
+<% end %>
+
+<div id="transaction-form" style="display:none;"></div>
 
 <br>
-
-

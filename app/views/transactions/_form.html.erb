@@ -19,12 +19,12 @@
 <%= form_for(@transaction, remote: true) do |f| %>
 
      <li><div class = "form"><%= f.label :date %></div><%= f.date_select :date, with_css_classes: true %></li>
-     <li><div><%= f.label :vendor, title: "Who did you buy it from?" %></div><%= f.text_field :vendor, class: "entry" %></li>
-     <li><div><%= f.label :who, title: "Who did you buy it for?  If it was just you, put your own name here" %></div><%= f.text_field :who, class: "entry"  %></li>
-     <li><div><%= f.label :what, title: "What did you buy?" %></div><%= f.text_field :what, class: "entry" %></li>
-     <li><div><%= f.label :where, title: "Where were you?" %></div><%= f.text_field :where, class: "entry" %></li>
-     <li><div><%= f.label :why, title: "Why did you buy it? You can put event or workshop names here" %></div><%= f.text_field :why, class: "entry" %></li>
-     <li><div><%= f.label :amount %></div><%= f.text_field :amount, class: "amount" %></li>
+     <li><div><%= f.label :vendor, title: "Who did you buy it from?" %></div><%= f.text_field :vendor, class: "entry", required: true %></li>
+     <li><div><%= f.label :who, title: "Who did you buy it for?  If it was just you, put your own name here" %></div><%= f.text_field :who, class: "entry", required: true  %></li>
+     <li><div><%= f.label :what, title: "What did you buy?" %></div><%= f.text_field :what, class: "entry", required: true %></li>
+     <li><div><%= f.label :where, title: "Where were you?" %></div><%= f.text_field :where, class: "entry", required: true %></li>
+     <li><div><%= f.label :why, title: "Why did you buy it? You can put event or workshop names here" %></div><%= f.text_field :why, class: "entry", required: true %></li>
+     <li><div><%= f.label :amount %></div><%= f.number_field :amount, class: "amount", required: true, step: 0.01 %></li> 
      <li><div><%= f.label :program %></div><%= select(:transaction, :program_id, options_for_select(@programs), {}, {class: "selector"}) %></li>
      <li><div><%= f.label :account %></div><%= select(:transaction, :account_id, options_for_select(@accounts), {}, {class: "selector"}) %></li>
   <div class="actions">

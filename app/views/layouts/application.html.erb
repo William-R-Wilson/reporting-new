@@ -16,6 +16,13 @@
   <li><%= link_to "All Transactions", transactions_path, class: "nav_button", title: "View all your credit card transactions" %></li>
   <li><%= link_to "Time Records", time_records_path, class: "nav_button", title: "View all your time records" %></li>
   <li><%= link_to "Reports", reports_path, class: "nav_button", title: "Create a monthly credit card report" %></li>
+  <% if is_admin? %>
+    <li><%= link_to "Admin menu", admin_path, class: "nav_button", title: "Admin options" %></li>
+  <% elsif is_coordinator? %>
+    <li><%= link_to "Coordinator menu", coordinator_path, class: "nav_button", title: "Coordinator Options" %></li>
+  <% else %>
+    <li><%= link_to "Other options", user_options_path, class: "nav_button", title: "Other Options" %></li>
+  <% end %>
 
 <% end %>
 </ul>
@@ -27,21 +34,6 @@
 <%= yield %>
 
 
-<div id = "footer">
-  <ul>
-    <% if logged_in? %>
-
-      <li><%= link_to "Enter Time", new_time_record_path, class: "nav_button", title: "Enter your hours worked" %></li>
-      <% if is_admin? %>
-        <li><%= link_to "Admin menu", admin_path, class: "nav_button", title: "Admin options" %></li>
-      <% elsif is_coordinator? %>
-        <li><%= link_to "Coordinator menu", coordinator_path, class: "nav_button", title: "Coordinator Options" %></li>
-      <% else %>
-        <li><%= link_to "Other options", user_options_path, class: "nav_button", title: "Other Options" %></li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
 <% if logged_in? %>
   <%= link_to "Logout", logout_path, method: :delete %>
 <% end %>

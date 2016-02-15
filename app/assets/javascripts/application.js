@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
+$(function() {
+  $('#notice').fadeTo(3500, 0);
+});

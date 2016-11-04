@@ -17,7 +17,7 @@ class UsersControllerTest < ActionController::TestCase
   test "non-admin cannot create user" do
     login_as(@coord)
     assert_no_difference('User.count') do
-      post :create, user: { email: "Jimmy@jim.com", name: "jeb", password: 'secret', password_confirmation: 'secret' }
+      post :create, user: { email: "Jimmy@jim.com", first_name: "jeb", last_name: "Bush", password: 'secretest', password_confirmation: 'secretest' }
     end
     assert_redirected_to time_records_url
   end
@@ -25,12 +25,12 @@ class UsersControllerTest < ActionController::TestCase
   test "regular user can show themselves" do
     login_as(@nonadmin)
     get :show, id: @nonadmin
-    assert_redirected_to time_records_url  #change this back to assert :success!
+    assert :success!
   end
 
   test "coordinator can show other users" do
     login_as(@coord)
-    puts @nonadmin.name
+    puts @nonadmin.first_name
     puts @nonadmin.id
     puts @nonadmin.start_date
     get :show, id: @nonadmin.id
@@ -45,7 +45,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "non-admin cannot update user" do
     login_as(@coord)
-    patch :update, id: @nonadmin, user: { email: @nonadmin.email, name: @nonadmin.name, password: 'secret', password_confirmation: 'secret' }
+    patch :update, id: @nonadmin, user: { email: @nonadmin.email, first_name: @nonadmin.first_name, password: 'secretest', password_confirmation: 'secretest' }
     assert_redirected_to time_records_url
   end
 

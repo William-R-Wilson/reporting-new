@@ -2,14 +2,16 @@
 
 one:
   id: 1
-  name: "Spock"
+  first_name: "Dr."
+  last_name: "Spock"
   email: "Spock@vulcan.com"
   password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: true
 
 two:
   id: 2
-  name: "James T. Kirk"
+  first_name: "James"
+  last_name: T. Kirk"
   email: "james@t.kirk.com"
   password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: false
@@ -21,7 +23,8 @@ two:
 
 three:
   id: 3
-  name: "McCoy"
+  first_name: "Leonard"
+  last_name: "McCoy"
   email: "mcccoy@mccoy.com"
   password_digest: <%= BCrypt::Password.create('secretest') %>
   admin: false

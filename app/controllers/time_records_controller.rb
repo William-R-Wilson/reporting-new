@@ -14,6 +14,14 @@ class TimeRecordsController < ApplicationController
     end
   end
 
+  def csv_index
+    @time_records = TimeRecord.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @time_records.to_csv, filename: "time-records-#{Date.today}.csv"}
+    end
+  end
+
   def show
     @timerecord = TimeRecord.find(params[:id])
     @user_name = current_user.first_name

@@ -7,6 +7,7 @@ $(document).ready(function(){
     })
     return String(hours);
   };
+
   $("#hours_count").html(getTotal());
   $(".time_report").change(function(){
     $("#hours_count").html(getTotal());

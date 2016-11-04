@@ -8,6 +8,24 @@ class TimeRecord < ActiveRecord::Base
 
   self.per_page = 12
 
+  def self.to_csv
+    attributes = %w{employee date hours vacation sick jury inclement holiday bereavement}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |record|
+        csv << ["#{record.user.first_name}" + " #{record.user.last_name}",
+                record.date,
+                record.hours,
+                record.vacation,
+                record.jury_duty,
+                record.inclement_weather,
+                record.holiday,
+                record.bereavement]
+      end
+    end
+  end
+
   def default_values
     self.vacation ||= 0
     self.sick ||= 0

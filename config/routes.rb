@@ -22,7 +22,12 @@ Rails.application.routes.draw do
 
   resources :transactions
 
-  resources :time_records
+  resources :time_records do
+    collection do
+      get "csv_index"
+    end
+  end
+  
 
   resources :accounts
   resources :programs

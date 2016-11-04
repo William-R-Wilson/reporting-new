@@ -7,15 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
     users = User.create([{ first_name: "Will", last_name: "Wilson", email: "will@will.com",
-                          password_digest: BCrypt::Password.create('secretest'),
+                          password: 'secretest',
                           admin: true, coordinator: false, splits: "Admin, 1", percent_time: 1.0,
                           start_date: "2015-07-01", starting_sick: 0, starting_vacation: 0},
                           { first_name: "Bob", last_name: "Dobbs", email: "bob@jrbobdobbs.com",
-                            password_digest: BCrypt::Password.create('secretest'),
+                            password: 'secretest',
                             admin: false, coordinator: true, splits: "Development, .5, General Ed, .5",
                             percent_time: 1.0, start_date: "2015-07-01", starting_sick: 0,
                             starting_vacation: 0}, { first_name: "Rick", last_name: "Grimes", email: "sheriffgrimes@kingcounty.gov",
-                            password_digest: BCrypt::Password.create('secretest'),
+                            password: 'secretest',
                             admin: false, coordinator: false, splits: "Development, .2, General Ed, .8",
                             percent_time: 1.0, start_date: "2015-01-01", starting_sick: 0,
                             starting_vacation: 0}])
@@ -39,7 +39,7 @@
       user_id = (1 + rand(3))
       account_id = (1 + rand(4))
       program_id = (1 + rand(3))
-      Transaction.create!( date: name,
+      Transaction.create!( date: date,
                           vendor: vendor,
                           who: who,
                           what: what,

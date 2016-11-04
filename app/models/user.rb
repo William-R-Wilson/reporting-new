@@ -1,5 +1,3 @@
-
-
 class User < ActiveRecord::Base
   require 'date'
   before_save { self.email = email.downcase }

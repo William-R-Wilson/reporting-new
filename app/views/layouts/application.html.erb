@@ -13,9 +13,9 @@
 <div id = "navbar">
 <ul>
 <% if logged_in? %>
-  <li><%= link_to "All Transactions", transactions_path, class: "nav_button", title: "View all your credit card transactions" %></li>
+  <li><%= link_to "Credit Card Transactions", transactions_path, class: "nav_button", title: "View all your credit card transactions" %></li>
   <li><%= link_to "Time Records", time_records_path, class: "nav_button", title: "View all your time records" %></li>
-  <li><%= link_to "Reports", reports_path, class: "nav_button", title: "Create a monthly credit card report" %></li>
+  <li><%= link_to "Credit Card Reports", reports_path, class: "nav_button", title: "Create a monthly credit card report" %></li>
   <% if is_admin? %>
     <li><%= link_to "Admin menu", admin_path, class: "nav_button", title: "Admin options" %></li>
   <% elsif is_coordinator? %>

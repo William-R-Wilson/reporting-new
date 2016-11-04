@@ -64,15 +64,15 @@ a.row_button:hover {
     background-color: #ADD4FF;
     color: black;
 }
- 
-.list_line_even { 
+
+.list_line_even {
   background-color: #E6F2FF;
 }
 
 .list_line_odd {
   background-color: #FFFFFF;
 }
- 
+
 .submit_button {
     border: 1px solid black;
     border-radius: 5px;
@@ -83,7 +83,7 @@ a.row_button:hover {
     margin : 5px;
     padding: 4px 8px 4px 8px;
     display: inline-block;
-}  
+}
 
 .submit_button:hover {
     border: 2px solid gray;
@@ -104,29 +104,29 @@ td {
    margin: 5px;
    padding: 4px;
  }
- 
+
  .welcome {
    float: right;
  }
- 
+
  .approval {
    display: none;
  }
- 
+
  .heading {
    line-height: 1.5;
  }
- 
+
  .sub_head {
    line-height: 1.25;
  }
 
- 
+
  @media all {
 	.page-break	{ display: none; }
 }
 
- 
+
  @media print {
    a, a.nav_button, h1 {
      display: none;
@@ -137,13 +137,13 @@ td {
    }
    .page-break { display: block; page-break-before: always; }
  }
- 
+
  @media screen and (max-width: 700px) {
-  
+
   body {
     font-size: 1.5em;
   }
-  
+
   tr {
     width: 100%;
   }
@@ -157,7 +157,7 @@ td {
     font-weight: bold;
     padding: 0px;
   }
-  
+
   label {
     margin: 5px;
     padding: 4px;
@@ -168,16 +168,18 @@ td {
     width: 90%;
     margin: 10px;
   }
-  
+
   .form {
     width: 100%;
   }
-  
+
   .nav_button {
-    width: 25%;
+    width: 50%;
     margin: 2px;
+    padding: 1px;
+    display: block;
   }
-  
+
   .year {
     width: 25%;
     margin: 5px;
@@ -185,7 +187,7 @@ td {
     font-weight: bold;
     border: 1px solid black;
   }
-  
+
   .month {
     width: 25%;
     margin: 5px;
@@ -193,7 +195,7 @@ td {
     font-weight: bold;
     border: 1px solid black;
   }
-  
+
   .day {
     width: 25%;
     margin: 5px;
@@ -201,7 +203,7 @@ td {
     font-weight: bold;
     border: 1px solid black;
   }
-  
+
   .selector {
     width: 50%;
     margin: 5px;
@@ -209,13 +211,12 @@ td {
     font-weight: bold;
     border: 1px solid black;
   }
-  
+
   .heading {
       font-size: 1.5em;
       font-weight: bold;
       padding: .5em;
       margin: .5em;
   }
-  
-}
 
+}

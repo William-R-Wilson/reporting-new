@@ -1,76 +1,11 @@
-#this is the production version!
+This is a custom time and expense reporting application.  Employees can record credit card expenses and report time.  
 
-This is an expense and time reporting app.  it is customized for the workflow already in use by
-the organization it was designed for.  
+I built it as a learning experience, but it has turned into a useful tool for the organization it was built for.  Most of it was built from scratch, including authorization and responsive CSS.  
 
-Upon signin, a user can record credit card transactions or enter a report of hours worked.  
-Once all transactions are entered, user can then go to a reports dashboard and pull up all
-transactions between two dates.  The transactions are totalled.  There is also a printable
-view which hides navigation elements and provides other elements which are hidden in normal view.  
+Some AJAX and JavaScript have been added to improve the user experience. All records can be exported to CSV for backup.  
 
-Friendly forwarding and cookies allow users to click on a link and go straight to the task desired.  
-After initial login, admins can send an email with the link and users can complete tasks with a single click.  
+`bundle install`
+`bundle exec rake db:migrate`
+`bundle exec rake db:seed`
 
-Admin users can add users and view reports for all users.  
-
-Coordinators can view all users time reports
-
-
-# To Do:
-
-- add email reminders
-- add statement dates
-- add ajax totals to time entry
-- add About page with instructions
-
-
-### Display:
-
-
-#### Not Finished
-
-- Fields are responsive to screen size
-- fix flash error messages
-
-
-### reporting:
-
-- reports by user, and with start and end dates can be run.
-- Reports have a printable view.
-- time report summaries/dashboard completed
-
-
-#### Not finished:
-- reports show totals by account. taken out of printable view
-- reports show totals by program and account. taken out of printable view
-
-
-### Tests:  
-
-- Application is fully tested.  in progress
-
-
-### Model:
-
-- Users can enter and edit their transactions.
-- Users cannot be deleted if they have transactions entered.  Need to add an inactive status to hide these users.
-
-### Authorization:
-
-#### Done
-
-- Basic authorization system is in place.
-- Admins can enter and delete users.
-- Admins can enter additional accounts and programs
-- add friendly forwarding
-
-#### Not finished:
-
-- Authorized users and admins can enter for other users.  
-- Coordinators can approve transactions. coordinators are linked to specific employees, ie coordinator x can approve for employee a,b and c but not employees d, e, f.
-
-
-### Future:  
-
-- Uploading images of receipts with each transaction
-- email reminders to report
+Rails 4.1.6

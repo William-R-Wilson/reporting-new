@@ -36,3 +36,6 @@
     </tbody>
   </table>
 <div class = "paginate"><%= will_paginate @timerecords %></div>
+<% if current_user.admin? %>
+  <%= link_to "Export all time records as CSV", "time_records/csv_index.csv" %>
+<% end %>

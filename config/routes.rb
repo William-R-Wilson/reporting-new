@@ -20,9 +20,18 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :transactions
+  resources :transactions do
+    collection do
+      get "csv_export"
+    end
+  end
 
-  resources :time_records
+  resources :time_records do
+    collection do
+      get "csv_index"
+    end
+  end
+
 
   resources :accounts
   resources :programs

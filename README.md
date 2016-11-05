@@ -9,3 +9,4 @@ Some AJAX and JavaScript have been added to improve the user experience. All rec
 `bundle exec rake db:seed`
 
 Rails 4.1.6
+Ruby 2.0.0

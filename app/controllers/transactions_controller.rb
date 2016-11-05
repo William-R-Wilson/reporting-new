@@ -30,7 +30,11 @@ class TransactionsController < ApplicationController
   end
 
   def csv_export
-    #@transactions = Transaction.all
+    if User.find_by(id: session[:user_id]).admin?
+      @transactions = Transaction.all
+    else
+      @transactions = Transaction.where("user_id = ?", User.find_by(id: session[:user_id]))
+    end
     respond_to do |format|
       format.html
       format.csv { send_data @transactions.to_csv, filename: "transactions-#{Date.today}.csv"}

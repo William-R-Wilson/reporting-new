@@ -15,7 +15,7 @@ class Transaction < ActiveRecord::Base
     CSV.generate(headers: true) do |csv|
       csv << attributes
       all.each do |transaction|
-        csv << [transaction.user.first_name,
+        csv << ["#{transaction.user.first_name} #{transaction.user.last_name}",
                 transaction.date,
                 transaction.vendor,
                 transaction.who,

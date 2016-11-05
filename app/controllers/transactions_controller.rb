@@ -30,7 +30,7 @@ class TransactionsController < ApplicationController
   end
 
   def csv_export
-    @transactions = Transaction.all
+    #@transactions = Transaction.all
     respond_to do |format|
       format.html
       format.csv { send_data @transactions.to_csv, filename: "transactions-#{Date.today}.csv"}

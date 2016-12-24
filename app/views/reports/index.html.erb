@@ -10,10 +10,10 @@
   <% end %>
 </div>
 
-<div class = "form">Start Date: </div>
-  <%= select_date Date.today.prev_month, prefix: :start_date, with_css_classes: true %><br>
-<div class = "form">End Date: </div>
-  <%= select_date Date.today, prefix: :end_date, with_css_classes: true %><br>
+<div class = "form">Statement Start Month: </div>
+  <%= select_date Date.today.prev_month, order: [:year, :month], prefix: :start_date, with_css_classes: true %><br>
+<div class = "form">Statement End Month: </div>
+  <%= select_date Date.today, order: [:year, :month], prefix: :end_date, with_css_classes: true %><br>
 
 <div class="form">
   <%= submit_tag("See transactions", class: "submit_button") %>

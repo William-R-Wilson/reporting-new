@@ -5,15 +5,19 @@
 <div class = "container">
   <h1>Credit Card Report</h1>
   <%= render "list" %>
-  
+
   <strong>Total of all Transactions:  <%= number_to_currency(@total.sum) %></strong>
   <span class = "approval"><strong>Approved by:_______________________________</strong></span>
   <% if @transactions_for_display.count > 12 %>
     <div class="page-break"></div>
   <% end %>
-  <div><%= link_to "Print this page", "#", onclick: "printpage()" %></div>
+  <div><%= link_to "Print this page", "#", onclick: "printpage()" %> |
+  <%= link_to "CSV export", { controller: "reports",
+                              action: "csv_report",
+                              format: :csv,
+                              params: { start_date: @start_date,
+                                        end_date: @end_date,
+                                        user_id: @user_id } } %></div>
+
 
 </div>
-
-
-

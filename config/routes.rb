@@ -16,7 +16,12 @@ Rails.application.routes.draw do
 
   #get 'reports/:user_id', to: 'users#user_transactions'
 
-  resources :reports
+  resources :reports do
+    collection do
+      get 'csv_report'
+    end
+  end
+
 
   resources :users
 

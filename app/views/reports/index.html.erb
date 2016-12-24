@@ -11,9 +11,9 @@
 </div>
 
 <div class = "form">Statement Start Month: </div>
-  <%= select_date Date.today.prev_month, order: [:year, :month], prefix: :start_date, with_css_classes: true %><br>
+  <%= select_date Date.today.prev_month, order: [:month, :year], prefix: :start_date, with_css_classes: true %><br>
 <div class = "form">Statement End Month: </div>
-  <%= select_date Date.today, order: [:year, :month], prefix: :end_date, with_css_classes: true %><br>
+  <%= select_date Date.today, order: [:month, :year], prefix: :end_date, with_css_classes: true %><br>
 
 <div class="form">
   <%= submit_tag("See transactions", class: "submit_button") %>

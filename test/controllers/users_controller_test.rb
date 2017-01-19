@@ -30,9 +30,6 @@ class UsersControllerTest < ActionController::TestCase
 
   test "coordinator can show other users" do
     login_as(@coord)
-    puts @nonadmin.first_name
-    puts @nonadmin.id
-    puts @nonadmin.start_date
     get :show, id: @nonadmin.id
     assert_response :success
   end

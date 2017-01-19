@@ -60,9 +60,10 @@ class TransactionsController < ApplicationController
         format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
         format.js {}
         format.json { redirect_to transactions_url, status: :created, location: @transaction }
+      else
         format.html { render :new }
         format.js { render layout: false, content_type: 'text/javascript' }
-        format.json { render json: @transaction, status: :unprocessable_entity }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,10 +75,8 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.update(transaction_params)
         format.html { redirect_to transactions_url, notice: 'Transaction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
   end

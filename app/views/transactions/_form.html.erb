@@ -28,7 +28,7 @@
      <li><div><%= f.label :program %></div><%= select(:transaction, :program_id, options_for_select(@programs), {}, {class: "selector"}) %></li>
      <li><div><%= f.label :account %></div><%= select(:transaction, :account_id, options_for_select(@accounts), {}, {class: "selector"}) %></li>
   <div class="actions">
-    <%= f.submit "Create", class: "submit_button" %>
+    <%= f.submit "Submit", class: "submit_button" %>
   </div>
 </div>
 <% end %>

@@ -53,6 +53,7 @@ class TransactionsController < ApplicationController
 
   # POST /transactions
   # POST /transactions.json
+
   def create
     @transaction = current_user.transactions.build(transaction_params)
     respond_to do |format|

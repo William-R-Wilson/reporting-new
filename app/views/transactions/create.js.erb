@@ -1,5 +1,6 @@
-
 $('#transaction-form').fadeOut();
+$('#notice').html("<div>Transaction created!</div>").css("opacity", 1);
+$('#notice').fadeTo(3500, 0);
 $('#transaction-form').fadeIn();
 $('#vendor-field').focus();
 $('#transactions-list').html("<%= j (render 'list') %>");

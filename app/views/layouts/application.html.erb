@@ -27,9 +27,7 @@
 <% end %>
 </ul>
 </div>
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
+  <p id="notice"><%= notice if notice %></p>
 
 <%= yield %>
 

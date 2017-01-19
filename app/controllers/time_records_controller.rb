@@ -43,7 +43,7 @@ class TimeRecordsController < ApplicationController
     @timerecord = current_user.time_records.create(timerecord_params)
     respond_to do |format|
       if @timerecord.save
-        format.html { redirect_to time_record_url(@timerecord), notice: 'Transaction was successfully created.' }
+        format.html { redirect_to time_record_url(@timerecord), notice: 'Time was successfully recorded.' }
         format.json { redirect_to time_record_url(@timerecord), status: :created, location: @timerecord }
       else
         format.html { redirect_to new_time_record_url, notice: "There were errors in your submission, please try again" }

@@ -1,0 +1,6 @@
+<h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+<ul>
+<% @transaction.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>

@@ -3,18 +3,8 @@
 
 <fieldset>
 <legend>Enter Transaction Details</legend>
-
-  <% if @transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-
-      <ul>
-      <% @transaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div id="error_explanation" style="display: none">
     </div>
-  <% end %>
 <div class = "enter_transactions">
 <%= form_for(@transaction, remote: true) do |f| %>
 
@@ -25,10 +15,10 @@
      <li><div><%= f.label :where, title: "Where were you?" %></div><%= f.text_field :where, class: "entry", required: true %></li>
      <li><div><%= f.label :why, title: "Why did you buy it? You can put event or workshop names here" %></div><%= f.text_field :why, class: "entry", required: true %></li>
      <li><div><%= f.label :amount %></div><%= f.number_field :amount, class: "amount", required: true, step: 0.01 %></li>
-     <li><div><%= f.label :program %></div><%= select(:transaction, :program_id, options_for_select(@programs), {}, {class: "selector"}) %></li>
-     <li><div><%= f.label :account %></div><%= select(:transaction, :account_id, options_for_select(@accounts), {}, {class: "selector"}) %></li>
+     <li><div><%= f.label :program %></div><%= select(:transaction, :program_id, options_for_select(@programs), {include_blank: "select one"}, {class: "selector"}) %></li>
+     <li><div><%= f.label :account %></div><%= select(:transaction, :account_id, options_for_select(@accounts), {include_blank: "select one"}, {class: "selector"}) %></li>
   <div class="actions">
-    <%= f.submit "Submit", class: "submit_button" %>
+    <%= f.submit "Submit", class: "submit_button", id: "trans_submit" %>
   </div>
 </div>
 <% end %>

@@ -16,22 +16,9 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="list_of_items">
     <% @transactions.each do |transaction| %>
-      <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td><%= transaction.date %></td>
-        <td><%= transaction.vendor %></td>
-        <td><%= transaction.who %></td>
-        <td><%= transaction.what %></td>
-        <td><%= transaction.where %></td>
-        <td><%= transaction.why %></td>
-        <td><%= number_to_currency(transaction.amount) %></td>
-        <td><%= transaction.program.name %></td>
-        <td><%= transaction.account.name %></td>
-        <td><%= transaction.user.first_name + " " + transaction.user.last_name %></td>
-        <td><%= link_to 'Edit', edit_transaction_path(transaction), class: 'row_button' %></td>
-        <td><%= link_to 'Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'row_button' %></td>
-      </tr>
+      <%= render 'list_item', transaction: transaction %>
     <% end %>
   </tbody>
 </table>

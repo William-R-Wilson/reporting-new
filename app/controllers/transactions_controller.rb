@@ -56,17 +56,11 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_user.transactions.build(transaction_params)
-    respond_to do |format|
       if @transaction.save
-        format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
-        format.js {}
-        format.json { redirect_to transactions_url, status: :created, location: @transaction }
+        render :create
       else
-        format.html { render :new }
-        format.js { render layout: false, content_type: 'text/javascript' }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        render :errors
       end
-    end
   end
 
   # PATCH/PUT /transactions/1

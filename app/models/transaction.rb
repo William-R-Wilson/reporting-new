@@ -4,8 +4,8 @@ class Transaction < ActiveRecord::Base
   validates :vendor, :what, presence: true
   validates_presence_of :who, message: "can't be blank.  You can enter your own name"
   validate :date_cannot_be_in_the_future
-  validates_presence_of :program_id, message: "please select a program"
-  validates_presence_of :account_id, message: "please select an account"
+  validates_presence_of :program_id, message: "must be selected"
+  validates_presence_of :account_id, message: "must be selected"
   belongs_to :user
   belongs_to :account
   belongs_to :program

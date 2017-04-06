@@ -18,6 +18,7 @@ class TimeRecord < ActiveRecord::Base
                 record.date,
                 record.hours,
                 record.vacation,
+                record.sick,
                 record.jury_duty,
                 record.inclement_weather,
                 record.holiday,

@@ -49,6 +49,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1/edit
   def edit
+    session[:return_to] ||= request.referer
   end
 
   # POST /transactions
@@ -69,7 +70,7 @@ class TransactionsController < ApplicationController
     #@transaction = Transaction.find(params[:id])
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to transactions_url, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to session.delete(:return_to), notice: 'Transaction was successfully updated.' }
       else
         format.html { render :edit }
       end

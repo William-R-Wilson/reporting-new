@@ -1,6 +1,6 @@
 
 
-<div class = "sub_head">Purchases made by <%= @user.first_name + " " + @user.last_name%> from <%= @start_date.strftime("%b")+ 
+<div class = "sub_head">Purchases made by <%= @user.first_name + " " + @user.last_name%> from <%= @start_date.strftime("%b")+
                       " " + @start_date.day.to_s %> to <%= @end_date.strftime("%b") +
                       " " + @end_date.day.to_s %></div>
 
@@ -32,6 +32,7 @@
         <td><%= number_to_currency(transaction.amount) %></td>
         <td><%= transaction.program.name %></td>
         <td><%= transaction.account.name %></td>
+        <td class="noprint"><%= link_to 'Edit', edit_transaction_path(transaction), class: 'row_button' %></td>
       </tr>
     <% end %>
   </tbody>

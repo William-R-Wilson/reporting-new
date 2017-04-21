@@ -128,7 +128,7 @@ td {
 
 
  @media print {
-   a, a.nav_button, h1 {
+   a, a.nav_button, a.row_button, td.noprint, h1 {
      display: none;
    }
    .approval {
